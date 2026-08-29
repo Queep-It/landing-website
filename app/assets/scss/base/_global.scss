@@ -1,0 +1,164 @@
+/// --------------------------------------------------
+/// base/_global.scss
+/// --------------------------------------------------
+/// The design tokens, exposed as custom properties, plus base typography.
+/// Components reference these rather than hardcoding values, which is what
+/// lets the whole site re-theme from one place — see `themes/_dark.scss`
+/// for the dark counterpart of every colour below.
+///
+/// Palette: the app icon, taken literally. Near-black charcoal on warm
+/// cream, with the bookmark's amber as the single accent. The cream is
+/// load-bearing rather than decorative — a pure #ffffff page next to an
+/// icon rendered on #faf7f2 makes the icon look dirty, which is the one
+/// thing a landing page for a Mac app cannot afford.
+/// --------------------------------------------------
+
+@use "../abstracts" as *;
+
+:root {
+   // Tells the browser to render native scrollbars, form controls and
+   // autofill in the light palette. The dark theme flips it.
+   color-scheme: light;
+
+   // Surfaces. Note the inversion against most palettes: `--surface-raised`
+   // is pure white and *lighter* than the cream page, because cards here
+   // read as paper lifted off a desk rather than as panels cut into it.
+   --surface: #faf7f2;
+   --surface-raised: #ffffff;
+   --surface-sunken: #f1ece3;
+   // Translucent, for the sticky topbar sitting over scrolling content.
+   --surface-veil: rgb(250 247 242 / 72%);
+
+   // Text.
+   --ink: #1a1c1f;
+   --ink-soft: #43474e;
+   --muted: #6b7079;
+
+   /// The accent splits into two roles, and conflating them is how amber
+   /// palettes fail an audit. `--accent-solid` is the bookmark's own yellow
+   /// and is used as a FILL only — buttons, the highlight swipe, the icon
+   /// mark — with `--accent-contrast` (near-black, 9.8:1 on it) as its
+   /// foreground. `--accent` is the ink role for links and small labels,
+   /// and it is a much darker amber because #f5b62a on cream is 1.7:1 and
+   /// unreadable as text at any size.
+   --accent: #8a5300;
+   --accent-strong: #6d4200;
+   --accent-solid: #f5b62a;
+   --accent-solid-hover: #e0a316;
+   --accent-contrast: #1a1c1f;
+   --accent-soft: #fdf3dd;
+
+   // Lines. Warm greys, mixed toward the cream rather than neutral — a
+   // neutral hairline on a warm surface reads as blue.
+   --line: #e6e0d5;
+   --line-strong: #d2cabb;
+
+   // Status.
+   --danger: #b42318;
+   --danger-soft: #fef3f2;
+   --warn: #b54708;
+   --warn-soft: #fffaeb;
+   --success: #067647;
+   --success-soft: #ecfdf3;
+
+   /// Brand gradient. FILLS ONLY — never `background-clip: text`. Amber
+   /// gradient text on cream tops out around 1.8:1, so the hero emphasis
+   /// is a solid-ink phrase over an amber highlight swipe instead (see
+   /// `.hero__accent` in layout/_page.scss). Two adjacent stops on
+   /// purpose: gradients read as cheap the moment they cross the wheel.
+   --gradient-brand: linear-gradient(135deg, #f5b62a 0%, #f8cf6b 100%);
+
+   /// Elevation. Two stacked shadows per level — a tight contact shadow
+   /// plus a soft ambient one — because a single blur reads as a smudge
+   /// rather than as height. Warm-tinted to sit on cream.
+   --shadow-sm: 0 1px 2px rgb(38 30 16 / 6%), 0 1px 1px rgb(38 30 16 / 4%);
+   --shadow-md: 0 4px 8px rgb(38 30 16 / 5%), 0 12px 24px rgb(38 30 16 / 8%);
+   --shadow-lg: 0 8px 16px rgb(38 30 16 / 7%), 0 24px 48px rgb(38 30 16 / 12%);
+   --shadow-xl: 0 12px 24px rgb(38 30 16 / 8%), 0 48px 96px rgb(38 30 16 / 16%);
+
+   /// Focus. The reset strips `outline` from every form control, so this is
+   /// the only thing standing between keyboard users and an invisible
+   /// cursor. Translucent rather than a solid tint, so it reads on any
+   /// surface in either theme.
+   --focus-ring: 0 0 0 3px rgb(245 182 42 / 45%);
+
+   // Typography. Resolved and self-hosted by `@nuxt/fonts`, which picks
+   // these up because the custom property names start with `--font` (its
+   // `processCSSVariables: "font-prefixed-only"` default) and generates
+   // metric-matched fallbacks for the stacks below.
+   --font-display: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+   --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+   --font-mono: ui-monospace, "SF Mono", "Cascadia Code", monospace;
+
+   // Weights. Tune the whole site's typographic colour from these four.
+   --weight-body: 400;
+   --weight-strong: 500;
+   --weight-label: 600;
+   --weight-heading: 700;
+
+   // Spacing scale. One ratio for the whole site, so gaps between unrelated
+   // components still line up.
+   --space-3xs: #{px-to-rem(4)};
+   --space-2xs: #{px-to-rem(8)};
+   --space-xs: #{px-to-rem(12)};
+   --space-sm: #{px-to-rem(16)};
+   --space-md: #{px-to-rem(24)};
+   --space-lg: #{px-to-rem(32)};
+   --space-xl: #{px-to-rem(48)};
+   --space-2xl: #{px-to-rem(72)};
+   --space-3xl: #{px-to-rem(112)};
+
+   // Corners. Generous, matching the squircle of the app icon.
+   --radius-sm: #{px-to-rem(8)};
+   --radius-md: #{px-to-rem(12)};
+   --radius-lg: #{px-to-rem(18)};
+   --radius-xl: #{px-to-rem(26)};
+   --radius-pill: 999px;
+
+   // Reading measure for prose blocks (ledes, FAQ answers).
+   --measure: 68ch;
+
+   // Page gutter and maximum content width.
+   --page-max: #{px-to-rem(1160)};
+   --page-gutter: clamp(#{px-to-rem(16)}, 4vw, #{px-to-rem(32)});
+
+   // Height of the sticky topbar. Read by `scroll-margin-block-start` on
+   // every section so an in-page jump lands below the bar rather than
+   // under it — see `layout/_page.scss`.
+   --topbar-height: #{px-to-rem(64)};
+
+   // Motion. Referenced by every transition so timing stays consistent —
+   // `base/_reset.scss` disables all of it under prefers-reduced-motion.
+   --ease: cubic-bezier(0.2, 0.6, 0.3, 1);
+   // Overshoot-free deceleration for entrances: fast out of the gate, long
+   // tail. The scroll-reveal blocks all use this.
+   --ease-entrance: cubic-bezier(0.16, 1, 0.3, 1);
+   --duration: 160ms;
+   --duration-slow: 620ms;
+}
+
+body {
+   background-color: var(--surface);
+   color: var(--ink);
+   font-family: var(--font-body);
+   font-weight: var(--weight-body);
+   // Variable fonts carry their own weights; without this the browser may
+   // still synthesise a faux bold on top, which smears the letterforms.
+   font-synthesis-weight: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+   font-family: var(--font-display);
+   font-weight: var(--weight-heading);
+   // Display type is set large, where the default tracking looks loose.
+   letter-spacing: -0.025em;
+   text-wrap: balance;
+}
+
+::selection {
+   background-color: var(--accent-solid);
+   color: var(--accent-contrast);
+}

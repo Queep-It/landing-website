@@ -1,0 +1,45 @@
+/// --------------------------------------------------
+/// components/_badge.scss
+/// --------------------------------------------------
+/// Small pill labels: the hero eyebrow, "Most popular" on a pricing tier,
+/// the platform chips under the app window.
+/// --------------------------------------------------
+
+@use "../abstracts" as *;
+
+.badge {
+   display: inline-flex;
+   align-items: center;
+   gap: var(--space-3xs);
+   padding: px-to-rem(5) var(--space-xs);
+   border: 1px solid var(--line);
+   border-radius: var(--radius-pill);
+   background-color: var(--surface-raised);
+   color: var(--ink-soft);
+   font-size: px-to-rem(13);
+   font-weight: var(--weight-strong);
+   line-height: 1.2;
+   white-space: nowrap;
+
+   // Amber fill. The dot inside it inherits `currentColor`, so it flips
+   // with the label rather than needing its own token.
+   &--accent {
+      border-color: transparent;
+      background-color: var(--accent-solid);
+      color: var(--accent-contrast);
+      font-weight: var(--weight-label);
+   }
+
+   &--quiet {
+      border-color: transparent;
+      background-color: var(--surface-sunken);
+      color: var(--muted);
+   }
+
+   &__dot {
+      inline-size: px-to-rem(6);
+      block-size: px-to-rem(6);
+      border-radius: var(--radius-pill);
+      background-color: currentcolor;
+   }
+}

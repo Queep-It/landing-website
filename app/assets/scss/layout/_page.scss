@@ -1,0 +1,377 @@
+/// --------------------------------------------------
+/// layout/_page.scss
+/// --------------------------------------------------
+/// Page-level scaffolding: the centred column, the section rhythm, the
+/// hero, the responsive grids and the prose defaults for ledes and FAQ
+/// answers.
+/// --------------------------------------------------
+
+@use "../abstracts" as *;
+
+/// Centred column. Everything on a page sits inside one of these.
+.page {
+   inline-size: 100%;
+   max-inline-size: var(--page-max);
+   margin-inline: auto;
+   padding: var(--space-lg) var(--page-gutter) var(--space-2xl);
+}
+
+/// Vertical rhythm between the blocks of a page.
+.stack {
+   display: flex;
+   flex-direction: column;
+   gap: var(--space-lg);
+
+   &--tight {
+      gap: var(--space-sm);
+   }
+
+   &--loose {
+      gap: var(--space-xl);
+   }
+}
+
+/// A landing-page section. `scroll-margin-block-start` is the load-bearing
+/// property: the topbar is sticky, so an in-page jump to `#pricing` would
+/// otherwise land with the heading tucked underneath it. The value is the
+/// bar's own height plus breathing room, both read from tokens so the two
+/// cannot drift.
+.section {
+   scroll-margin-block-start: calc(var(--topbar-height) + var(--space-md));
+   padding-block: var(--space-2xl);
+
+   @media (width < 48rem) {
+      padding-block: var(--space-xl);
+   }
+
+   // Alternating band. Full-bleed via padding on a wrapper rather than
+   // 100vw tricks, which overflow when a scrollbar is present.
+   &--banded {
+      background-color: var(--surface-sunken);
+   }
+
+   &__inner {
+      inline-size: 100%;
+      max-inline-size: var(--page-max);
+      margin-inline: auto;
+      padding-inline: var(--page-gutter);
+   }
+}
+
+/// The heading block above a section's content.
+.section-head {
+   display: flex;
+   flex-direction: column;
+   gap: var(--space-xs);
+   max-inline-size: px-to-rem(660);
+   margin-block-end: var(--space-xl);
+
+   &--center {
+      align-items: center;
+      margin-inline: auto;
+      text-align: center;
+   }
+
+   &__eyebrow {
+      color: var(--accent);
+      font-family: var(--font-display);
+      font-size: px-to-rem(13);
+      font-weight: var(--weight-label);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+   }
+
+   &__title {
+      font-size: clamp(#{px-to-rem(28)}, 4vw, #{px-to-rem(40)});
+      line-height: 1.12;
+   }
+
+   &__lede {
+      max-inline-size: var(--measure);
+      color: var(--ink-soft);
+      font-size: px-to-rem(17);
+      line-height: 1.65;
+   }
+}
+
+.page-header {
+   display: flex;
+   flex-direction: column;
+   gap: var(--space-2xs);
+
+   &__title {
+      font-size: clamp(#{px-to-rem(30)}, 5vw, #{px-to-rem(44)});
+      line-height: 1.1;
+   }
+
+   &__lede {
+      max-inline-size: var(--measure);
+      color: var(--ink-soft);
+      font-size: px-to-rem(17);
+      line-height: 1.6;
+   }
+}
+
+/// The opening block. Sits in its own stacking context so the wash behind
+/// it can be positioned against it.
+.hero {
+   position: relative;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   gap: var(--space-md);
+   padding-block: var(--space-2xl) var(--space-xl);
+   text-align: center;
+
+   /// A soft amber wash behind the headline. `pointer-events: none` keeps
+   /// it from swallowing clicks, and it is clipped by the page container
+   /// rather than allowed to widen the document — a decorative element
+   /// that triggers a horizontal scrollbar on a phone is a bug, not a
+   /// flourish.
+   &::before {
+      content: "";
+      position: absolute;
+      inset-block-start: 0;
+      inset-inline-start: 50%;
+      z-index: -1;
+      inline-size: min(#{px-to-rem(820)}, 100%);
+      block-size: px-to-rem(380);
+      transform: translateX(-50%);
+      background-image: radial-gradient(
+         ellipse at center,
+         rgb(245 182 42 / 22%) 0%,
+         rgb(245 182 42 / 8%) 45%,
+         transparent 70%
+      );
+      pointer-events: none;
+   }
+
+   &__title {
+      max-inline-size: 16ch;
+      font-size: clamp(#{px-to-rem(38)}, 7vw, #{px-to-rem(72)});
+      line-height: 1.02;
+   }
+
+   /// The emphasised phrase. Solid ink over an amber swipe, NOT gradient
+   /// text — see the note on `--gradient-brand` in `base/_global.scss`.
+   /// The swipe is a pseudo-element behind the glyphs so the text keeps
+   /// its real colour for the contrast audit to measure, and it is angled
+   /// very slightly so it reads as a marker stroke rather than a table
+   /// cell.
+   &__accent {
+      position: relative;
+      display: inline-block;
+      isolation: isolate;
+
+      &::before {
+         content: "";
+         position: absolute;
+         inset-block-end: 0.06em;
+         inset-inline: -0.1em;
+         z-index: -1;
+         block-size: 0.34em;
+         border-radius: px-to-rem(3);
+         background-color: var(--accent-solid);
+         transform: rotate(-0.6deg);
+         // Wipes in from the left once the hero mounts. `transform` rather
+         // than `width` so it composites on the GPU and never reflows.
+         transform-origin: left center;
+         scale: var(--swipe-scale, 1) 1;
+         transition: scale 700ms var(--ease-entrance) 260ms;
+      }
+   }
+
+   &__lede {
+      max-inline-size: 54ch;
+      color: var(--ink-soft);
+      font-size: clamp(#{px-to-rem(16.5)}, 2vw, #{px-to-rem(19)});
+      line-height: 1.65;
+   }
+
+   &__note {
+      color: var(--muted);
+      font-size: px-to-rem(13.5);
+   }
+}
+
+/// Responsive grid. `auto-fit` plus `minmax` means no breakpoints to
+/// maintain: the columns reflow on their own. The `min(100%, …)` guard
+/// stops the track from overflowing a container narrower than the floor —
+/// a bare minmax forces a horizontal scrollbar on a 300px viewport.
+.grid {
+   display: grid;
+   gap: var(--space-sm);
+   list-style: none;
+
+   &--features {
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, #{px-to-rem(280)}), 1fr));
+   }
+
+   &--pricing {
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, #{px-to-rem(300)}), 1fr));
+      gap: var(--space-md);
+      align-items: stretch;
+   }
+
+   &--steps {
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, #{px-to-rem(260)}), 1fr));
+      gap: var(--space-lg);
+   }
+}
+
+/// Question-and-answer list. Native <details>, so it works without
+/// JavaScript and announces its own expanded state — a hand-rolled
+/// accordion would need `aria-expanded`, `aria-controls` and key handling
+/// to reach the same place.
+.faq {
+   display: flex;
+   flex-direction: column;
+   gap: var(--space-2xs);
+   max-inline-size: px-to-rem(820);
+   margin-inline: auto;
+   list-style: none;
+
+   &__item {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background-color: var(--surface-raised);
+      overflow: hidden;
+      transition: border-color var(--duration) var(--ease);
+
+      &[open] {
+         border-color: var(--line-strong);
+      }
+   }
+
+   &__question {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-sm);
+      padding: var(--space-sm) var(--space-md);
+      font-family: var(--font-display);
+      font-size: px-to-rem(16);
+      font-weight: var(--weight-label);
+      cursor: pointer;
+      // Chrome and Safari render a disclosure triangle from this
+      // pseudo-element; the chevron below replaces it.
+      list-style: none;
+
+      &::-webkit-details-marker {
+         display: none;
+      }
+
+      &:hover {
+         background-color: var(--surface-sunken);
+      }
+
+      &:focus-visible {
+         outline: 2px solid var(--accent-solid);
+         outline-offset: -2px;
+      }
+   }
+
+   // Rotated rather than swapped for a second glyph, so the two states are
+   // one element and the turn can be animated.
+   &__chevron {
+      flex-shrink: 0;
+      color: var(--muted);
+      transition: transform var(--duration) var(--ease);
+   }
+
+   &__item[open] &__chevron {
+      transform: rotate(180deg);
+   }
+
+   &__answer {
+      max-inline-size: var(--measure);
+      padding: 0 var(--space-md) var(--space-md);
+      color: var(--ink-soft);
+      font-size: px-to-rem(15.5);
+      line-height: 1.7;
+   }
+}
+
+/// Long-form prose, for the policy and terms pages.
+.prose {
+   max-inline-size: var(--measure);
+   color: var(--ink-soft);
+   font-size: px-to-rem(16);
+   line-height: 1.75;
+
+   h2 {
+      margin-block: var(--space-lg) var(--space-2xs);
+      color: var(--ink);
+      font-size: px-to-rem(21);
+   }
+
+   p + p {
+      margin-block-start: var(--space-sm);
+   }
+
+   ul {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2xs);
+      margin-block-start: var(--space-sm);
+      padding-inline-start: var(--space-md);
+      list-style: disc;
+   }
+
+   a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 0.2em;
+   }
+}
+
+/// Cross-route fade, paired with `app.pageTransition` in nuxt.config.
+/// Opacity only, no travel: a translate here would fight the scroll-reveal
+/// entrances that fire immediately afterwards on the incoming page.
+.page-enter-active,
+.page-leave-active {
+   transition: opacity 220ms var(--ease);
+}
+
+.page-enter-from,
+.page-leave-to {
+   opacity: 0;
+}
+
+/// Visually hidden, but still announced by screen readers. Used for live
+/// regions and for labels that would be redundant on screen.
+.visually-hidden {
+   position: absolute;
+   inline-size: 1px;
+   block-size: 1px;
+   margin: -1px;
+   padding: 0;
+   border: 0;
+   clip-path: inset(50%);
+   white-space: nowrap;
+   overflow: hidden;
+}
+
+/// Skip link. Absolutely positioned off-screen until focused, at which
+/// point it drops into the top-left corner. The first tab stop on every
+/// page, and the only way past a sticky header for a keyboard user.
+.skip-link {
+   position: absolute;
+   inset-block-start: var(--space-2xs);
+   inset-inline-start: var(--space-2xs);
+   z-index: 100;
+   padding: var(--space-2xs) var(--space-sm);
+   border-radius: var(--radius-md);
+   background-color: var(--ink);
+   color: var(--surface);
+   font-size: px-to-rem(14);
+   font-weight: var(--weight-label);
+   transform: translateY(-200%);
+   transition: transform var(--duration) var(--ease);
+
+   &:focus-visible {
+      outline: 2px solid var(--accent-solid);
+      outline-offset: 2px;
+      transform: translateY(0);
+   }
+}

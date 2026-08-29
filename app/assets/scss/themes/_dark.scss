@@ -1,0 +1,77 @@
+/// --------------------------------------------------
+/// themes/_dark.scss
+/// --------------------------------------------------
+/// The dark counterpart of every colour token in `base/_global.scss`.
+/// Only colours are redefined — spacing, radii, typography and motion are
+/// theme-independent and stay where they are.
+///
+/// Three selectors, covering the three states the toggle can be in:
+///
+///   1. `prefers-color-scheme: dark` with no explicit choice → dark
+///      (the `:not([data-theme="light"])` guard lets an explicit light
+///      choice win over the OS setting)
+///   2. `[data-theme="dark"]` → dark regardless of the OS
+///   3. `[data-theme="light"]` → falls through to the light tokens
+///
+/// "System" is represented by the *absence* of the attribute rather than
+/// by `data-theme="system"`, so the media query is free to decide.
+/// --------------------------------------------------
+
+/// Every token in one place; the selectors below both pull it in, so the
+/// palette is written once rather than kept in sync by hand.
+@mixin dark-tokens {
+   color-scheme: dark;
+
+   // Surfaces. The light theme's inversion reverses here and goes back to
+   // the usual arrangement — "raised" is lighter than the base, because
+   // depth on near-black is carried by lightness, not by shadow.
+   --surface: #14161a;
+   --surface-raised: #1c1f25;
+   --surface-sunken: #101216;
+   --surface-veil: rgb(20 22 26 / 72%);
+
+   // Text. Warm off-white rather than pure white, so the page keeps the
+   // cream's temperature instead of turning clinical.
+   --ink: #f2efe9;
+   --ink-soft: #c2c5cc;
+   --muted: #8f959f;
+
+   // The ink accent lifts to stay readable on near-black. The fill does
+   // not move at all: `--accent-solid` is the icon's yellow in both
+   // themes, and `--accent-contrast` keeps its 9.8:1 against it.
+   --accent: #ffc94d;
+   --accent-strong: #ffd97a;
+   --accent-solid: #f5b62a;
+   --accent-solid-hover: #ffc94d;
+   --accent-contrast: #14161a;
+   --accent-soft: #2b2415;
+
+   // Lines.
+   --line: #2a2e36;
+   --line-strong: #3d434e;
+
+   // Status, lifted the same way the accent is.
+   --danger: #f97066;
+   --danger-soft: #2d1512;
+   --warn: #fdb022;
+   --warn-soft: #2b1d0a;
+   --success: #47cd89;
+   --success-soft: #0c2318;
+
+   // Deeper and more opaque: a 6%-black shadow is invisible on #14161a.
+   --shadow-sm: 0 1px 2px rgb(0 0 0 / 40%), 0 1px 1px rgb(0 0 0 / 30%);
+   --shadow-md: 0 4px 12px rgb(0 0 0 / 45%), 0 12px 32px rgb(0 0 0 / 35%);
+   --shadow-lg: 0 8px 24px rgb(0 0 0 / 50%), 0 32px 64px rgb(0 0 0 / 40%);
+   --shadow-xl: 0 12px 32px rgb(0 0 0 / 55%), 0 48px 96px rgb(0 0 0 / 45%);
+   --focus-ring: 0 0 0 3px rgb(255 201 77 / 40%);
+}
+
+@media (prefers-color-scheme: dark) {
+   :root:not([data-theme="light"]) {
+      @include dark-tokens;
+   }
+}
+
+:root[data-theme="dark"] {
+   @include dark-tokens;
+}

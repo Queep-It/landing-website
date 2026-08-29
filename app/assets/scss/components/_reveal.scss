@@ -1,0 +1,48 @@
+/// --------------------------------------------------
+/// components/_reveal.scss
+/// --------------------------------------------------
+/// Scroll-triggered entrances, driven by `composables/useReveal.ts`.
+///
+/// The resting state is the *revealed* one, and `[data-reveal]` without
+/// `[data-revealed]` is what hides it. That ordering matters: an element
+/// styled hidden-by-default is invisible to anyone whose JavaScript never
+/// runs, and this is a marketing page whose entire job is to be readable.
+/// The composable adds the `data-reveal` attribute itself on mount, so
+/// the server-rendered HTML carries no hidden state at all.
+/// --------------------------------------------------
+
+@use "../abstracts" as *;
+
+[data-reveal] {
+   opacity: 0;
+   transform: translateY(px-to-rem(18));
+   // `will-change` is deliberately absent: these fire once and then never
+   // again, so promoting every block to its own layer for the life of the
+   // page costs memory for a single 620ms transition.
+   transition:
+      opacity var(--duration-slow) var(--ease-entrance),
+      transform var(--duration-slow) var(--ease-entrance);
+}
+
+[data-reveal][data-revealed] {
+   opacity: 1;
+   transform: none;
+}
+
+/// Stagger. Set as an inline `--reveal-index` by the component that owns
+/// the list, so a grid of tiles arrives in sequence rather than as one
+/// block. Capped by the composable at 6 — beyond that the last item is
+/// waiting long enough to read as broken rather than as choreographed.
+[data-reveal] {
+   transition-delay: calc(var(--reveal-index, 0) * 70ms);
+}
+
+/// Under prefers-reduced-motion the reset already zeroes the transition,
+/// which would leave the element stuck at `opacity: 0` — the transition is
+/// what was going to change it. So the hidden state has to be dropped too.
+@media (prefers-reduced-motion: reduce) {
+   [data-reveal] {
+      opacity: 1;
+      transform: none;
+   }
+}
