@@ -20,7 +20,7 @@
                </h2>
                <ul class="site-footer__links">
                   <li v-for="item in COPY.nav.links" :key="item.href">
-                     <a :href="`/${item.href}`">{{ item.label }}</a>
+                     <a :href="hrefFor(item.href)">{{ item.label }}</a>
                   </li>
                </ul>
             </div>
@@ -61,6 +61,14 @@
 // page — close enough for a copyright line, and it avoids a hydration
 // mismatch from computing it twice.
 const year = new Date().getFullYear()
+
+const route = useRoute()
+
+/// Bare fragment on the homepage, route-prefixed everywhere else — the same
+/// rule `SiteNav` follows, and for the same reason. A hardcoded `/#pricing`
+/// is a path as well as a fragment, so on the homepage the browser treats
+/// it as a fresh navigation and reloads the page instead of scrolling.
+const hrefFor = (hash: string): string => (route.path === "/" ? hash : `/${hash}`)
 </script>
 
 <style scoped lang="scss">

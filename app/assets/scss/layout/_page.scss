@@ -31,13 +31,22 @@
    }
 }
 
-/// A landing-page section. `scroll-margin-block-start` is the load-bearing
-/// property: the topbar is sticky, so an in-page jump to `#pricing` would
-/// otherwise land with the heading tucked underneath it. The value is the
-/// bar's own height plus breathing room, both read from tokens so the two
-/// cannot drift.
-.section {
+/// Clearance for every in-page jump target. The topbar is sticky, so an
+/// anchor that scrolls to `#pricing` would otherwise land with the heading
+/// tucked underneath it. The value is the bar's own height plus breathing
+/// room, both read from tokens so the two cannot drift.
+///
+/// Scoped to `[id]` rather than `.section` because the sections are not the
+/// only targets: `/llms.txt` and the JSON-LD both link individual feature
+/// cards and FAQ entries by id, and those land under the bar too.
+/// `scroll-margin` is inert on anything that is never scrolled to, so the
+/// broad selector costs nothing.
+[id] {
    scroll-margin-block-start: calc(var(--topbar-height) + var(--space-md));
+}
+
+/// A landing-page section.
+.section {
    padding-block: var(--space-2xl);
 
    @media (width < 48rem) {

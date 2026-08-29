@@ -27,7 +27,13 @@
 }
 
 /* 3. Set core body defaults */
-html:focus-within {
+/// Unscoped rather than the `html:focus-within` the original reset uses.
+/// That gate was a workaround for an old Safari bug, and it only engages
+/// while something inside the page holds focus — so a hash present on load
+/// and any programmatic scroll both jump instead of animating. Every in-page
+/// CTA and nav link relies on this, and the reduced-motion block below still
+/// turns it off with `scroll-behavior: auto !important`.
+html {
    scroll-behavior: smooth;
 }
 
@@ -110,7 +116,7 @@ textarea {
 
 /* 10. Remove animations and transitions for people who prefer reduced motion */
 @media (prefers-reduced-motion: reduce) {
-   html:focus-within {
+   html {
       scroll-behavior: auto;
    }
 

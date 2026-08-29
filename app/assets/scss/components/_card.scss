@@ -195,7 +195,13 @@
    }
 
    &__check {
+      display: block;
       flex-shrink: 0;
+      // The SVG carries only a viewBox, so it has no intrinsic size: without
+      // an explicit one it stretches to fill the column instead of sitting
+      // beside the label. Sized in `em` so it tracks the row's font size.
+      inline-size: 1.15em;
+      block-size: 1.15em;
       margin-block-start: px-to-rem(3);
       color: var(--accent);
    }
