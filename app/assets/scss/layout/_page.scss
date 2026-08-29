@@ -161,6 +161,14 @@
       line-height: 1.02;
    }
 
+   /// Binds the emphasised phrase to the punctuation that follows it. The
+   /// accent below is an atomic inline, and browsers take a soft wrap
+   /// opportunity at one of those even with no whitespace there, which left
+   /// `, in one place` starting a line with a bare comma.
+   &__accent-group {
+      white-space: nowrap;
+   }
+
    /// The emphasised phrase. Solid ink over an amber swipe, NOT gradient
    /// text — see the note on `--gradient-brand` in `base/_global.scss`.
    /// The swipe is a pseudo-element behind the glyphs so the text keeps
@@ -171,6 +179,15 @@
       position: relative;
       display: inline-block;
       isolation: isolate;
+
+      /// The swipe is a FILL, so the glyphs on top of it take
+      /// `--accent-contrast` rather than the page's `--ink` — see the token
+      /// split in `base/_global.scss`, which names this very swipe as one of
+      /// the fills the pairing exists for. The rule was simply never applied
+      /// here, and inheriting `--ink` put cream on amber at 1.58:1 once the
+      /// dark theme inverted it. Held constant across both themes because
+      /// the swipe underneath is the same amber in both.
+      color: var(--accent-contrast);
 
       &::before {
          content: "";

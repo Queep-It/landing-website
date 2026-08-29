@@ -62,6 +62,11 @@ export const COPY = {
       primaryPending: "Join the beta",
       secondary: "See how it works",
       note: `Free while in beta · Requires ${REQUIREMENTS.macos} or later`,
+      // Captions under the two mocks. Real text rather than part of the
+      // drawings, which are `aria-hidden` — these are the only thing that
+      // names the two surfaces for a reader who cannot see them.
+      stageMenuBar: "In the menu bar",
+      stageWindow: "App window",
    },
 
    features: {
