@@ -54,6 +54,7 @@ Collections
          <div class="window__main">
             <p class="window__today">
                Today
+               <span class="window__today-count">{{ ITEMS.length }} items</span>
             </p>
             <div class="window__grid">
                <article
@@ -178,6 +179,13 @@ const NOTE_LINES = [96, 88, 62]
    box-shadow: var(--shadow-xl);
    color: var(--mock-ink);
    font-size: px-to-rem(13);
+
+   /// The hero centres its text, and every string in here was inheriting
+   /// that — tile titles, the "Today" header, the query in the search
+   /// field. No app centres those, so the drawing read as a poster of an
+   /// app rather than a shot of one. Anchored here rather than per-element
+   /// so anything added later starts out left-aligned too.
+   text-align: start;
    overflow: hidden;
    // Very slight lift out of the page, so the window reads as an object
    // above the hero rather than as a panel welded into it.
@@ -185,8 +193,12 @@ const NOTE_LINES = [96, 88, 62]
    transform-origin: top center;
 }
 
+/// Three tracks with the third left empty, so the field is centred on the
+/// window rather than on the space left over beside the lights — which is
+/// where a flex row would have put it, about 13px off.
 .window__bar {
-   display: flex;
+   display: grid;
+   grid-template-columns: 1fr minmax(0, #{px-to-rem(320)}) 1fr;
    align-items: center;
    gap: var(--space-sm);
    padding: var(--space-2xs) var(--space-xs);
@@ -210,9 +222,11 @@ const NOTE_LINES = [96, 88, 62]
    &--max { background-color: #61c554; }
 }
 
+/// A toolbar search, not an address bar: a real one is a fixed field in
+/// the middle of the chrome, so it takes a track of its own above rather
+/// than stretching edge to edge.
 .window__search {
    display: flex;
-   flex: 1;
    align-items: center;
    gap: var(--space-2xs);
    min-inline-size: 0;
@@ -264,14 +278,17 @@ const NOTE_LINES = [96, 88, 62]
 
 .window__body {
    display: grid;
-   grid-template-columns: px-to-rem(180) 1fr;
+   // `minmax(0, 1fr)`, not `1fr`: the pane's contents are wider than the
+   // track at their minimum (see `.window__grid`), and a bare `1fr` floors
+   // the track at that minimum instead of letting it shrink.
+   grid-template-columns: px-to-rem(180) minmax(0, 1fr);
    min-block-size: px-to-rem(340);
 
    // The sidebar is the first thing to go: at phone width the item grid is
    // what communicates the product, and a 180px rail beside it leaves the
    // tiles too narrow to read as tiles.
    @media (width < 40rem) {
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0, 1fr);
    }
 }
 
@@ -322,8 +339,11 @@ const NOTE_LINES = [96, 88, 62]
    color: var(--mock-ink);
    font-size: px-to-rem(12.5);
 
+   /// macOS tints the selected row with the system accent rather than
+   /// with grey. Amber at 20% keeps the label's contrast on the sunken
+   /// rail well clear of AA while tying the drawing to the page.
    &--active {
-      background-color: rgb(26 28 31 / 7%);
+      background-color: rgb(245 182 42 / 20%);
       font-weight: var(--weight-label);
    }
 }
@@ -366,6 +386,10 @@ const NOTE_LINES = [96, 88, 62]
 }
 
 .window__today {
+   display: flex;
+   align-items: baseline;
+   justify-content: space-between;
+   gap: var(--space-xs);
    margin-block-end: var(--space-2xs);
    font-family: var(--font-display);
    font-size: px-to-rem(15);
@@ -373,13 +397,30 @@ const NOTE_LINES = [96, 88, 62]
    letter-spacing: -0.02em;
 }
 
+.window__today-count {
+   color: var(--mock-muted);
+   font-family: var(--font-body);
+   font-size: px-to-rem(11.5);
+   font-weight: var(--weight-body);
+   font-variant-numeric: tabular-nums;
+   letter-spacing: 0;
+}
+
+/// `minmax(0, …)` on every track, and it is load-bearing. Tile titles are
+/// `white-space: nowrap`, so each tile's min-content width is its longest
+/// title in full — "Client intro for brand direction". A bare `1fr` is
+/// `minmax(auto, 1fr)`, which floors the track at that width, pushed the
+/// grid wider than the pane, and let `.window__main`'s `overflow: hidden`
+/// shear the right-hand column of tiles off at the window's edge. With the
+/// floor at zero the tracks share the pane and the titles ellipsis, which
+/// is what the `text-overflow` on them was always for.
 .window__grid {
    display: grid;
-   grid-template-columns: repeat(3, 1fr);
+   grid-template-columns: repeat(3, minmax(0, 1fr));
    gap: var(--space-2xs);
 
    @media (width < 48rem) {
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
    }
 }
 
@@ -393,8 +434,11 @@ const NOTE_LINES = [96, 88, 62]
    gap: px-to-rem(3);
    padding: px-to-rem(7);
    border: 1px solid var(--mock-line);
-   border-radius: var(--radius-sm);
+   border-radius: var(--radius-md);
    background-color: var(--mock-surface);
+   // A contact shadow only. The tiles sit on a white pane, so anything
+   // softer than this reads as a blur rather than as a card.
+   box-shadow: 0 1px 2px rgb(26 28 31 / 5%);
    animation: window-tile-in 620ms var(--ease-entrance) both;
    animation-delay: calc(320ms + var(--tile-index, 0) * 80ms);
 }

@@ -18,18 +18,28 @@
 
       <!-- The shelf itself, hanging off the icon. -->
       <div class="menubar__shelf">
+         <span class="menubar__notch" />
+
          <p class="menubar__title">
+            <span class="menubar__title-mark">
+               <QueepItMark gap-color="var(--mock-surface)" />
+            </span>
             Queep It
          </p>
 
          <span class="menubar__search">
             <AppIcon class="menubar__search-icon" name="search" />
             <span class="menubar__search-text">Search Queep It</span>
-            <kbd class="menubar__kbd">&#8984;K</kbd>
+            <kbd class="menubar__key">&#8984;K</kbd>
          </span>
 
          <ul class="menubar__list">
-            <li v-for="row in SMART" :key="row.label" class="menubar__row">
+            <li
+               v-for="row in SMART"
+               :key="row.label"
+               class="menubar__row"
+               :class="{ 'menubar__row--active': row.active }"
+            >
                <span class="menubar__row-label">{{ row.label }}</span>
                <span class="menubar__row-count">{{ row.count }}</span>
             </li>
@@ -65,6 +75,7 @@
 interface ShelfRow {
    label: string
    count: number
+   active?: boolean
 }
 
 interface ShelfAction {
@@ -81,7 +92,7 @@ const CLOCK = "Tue 9:41 AM"
 /// counts — two mocks of one app disagreeing about how many items are in
 /// it is the kind of detail that quietly reads as fake.
 const SMART: ShelfRow[] = [
-   { label: "All Items", count: 842 },
+   { label: "All Items", count: 842, active: true },
    { label: "Favorites", count: 43 },
    { label: "Recent", count: 78 },
 ]
@@ -116,6 +127,9 @@ const ACTIONS: ShelfAction[] = [
    box-shadow: var(--shadow-xl);
    color: var(--mock-ink);
    font-size: px-to-rem(13);
+   // Same reason as `AppWindowMock`: the hero centres its text, and a
+   // shelf whose rows and title are centred is not a picture of a menu.
+   text-align: start;
    overflow: hidden;
    // Matches the window's lift so the pair share one horizon.
    transform: perspective(1600px) rotateX(2.2deg);
@@ -192,6 +206,7 @@ const ACTIONS: ShelfAction[] = [
 /// The dropped panel. Inset from the bar's left edge so it reads as hanging
 /// off the icon rather than as a second full-width bar.
 .menubar__shelf {
+   position: relative;
    display: flex;
    flex-direction: column;
    gap: px-to-rem(9);
@@ -203,10 +218,41 @@ const ACTIONS: ShelfAction[] = [
    box-shadow: var(--shadow-lg);
 }
 
+/// The pointer back up to the icon. Without it the panel floats: it was
+/// described as hanging off the icon but drawn as a free-standing card,
+/// and the eye had nothing tying the two together. A rotated square with
+/// two of its borders showing, so it inherits the panel's own edge.
+.menubar__notch {
+   position: absolute;
+   inset-block-start: px-to-rem(-5);
+   // The icon's centre: the bar's 10px padding plus half its 22px chip,
+   // less this square's own half-width and the shelf's 11px inset.
+   inset-inline-start: px-to-rem(6);
+   inline-size: px-to-rem(9);
+   block-size: px-to-rem(9);
+   border-block-start: 1px solid var(--mock-line);
+   border-inline-start: 1px solid var(--mock-line);
+   border-start-start-radius: px-to-rem(2);
+   background-color: var(--mock-surface);
+   rotate: 45deg;
+}
+
+/// Headed like the window's sidebar, mark and all — the two drawings are
+/// meant to read as one app, and a bare centred word did not.
 .menubar__title {
+   display: flex;
+   align-items: center;
+   gap: px-to-rem(6);
    font-family: var(--font-display);
    font-size: px-to-rem(14);
-   font-weight: var(--weight-label);
+   font-weight: var(--weight-heading);
+   letter-spacing: -0.02em;
+}
+
+.menubar__title-mark {
+   display: block;
+   inline-size: px-to-rem(17);
+   block-size: px-to-rem(17);
 }
 
 .menubar__search {
@@ -231,11 +277,27 @@ const ACTIONS: ShelfAction[] = [
    font-size: px-to-rem(12.5);
 }
 
+/// Two shortcut treatments, because macOS draws two. A field's shortcut is
+/// a key cap — the same one `AppWindowMock` puts in its toolbar — while a
+/// menu row's is plain trailing text.
+.menubar__key {
+   flex-shrink: 0;
+   padding: px-to-rem(1) px-to-rem(5);
+   border: 1px solid var(--mock-line);
+   border-radius: px-to-rem(5);
+   background-color: var(--mock-surface);
+   color: var(--mock-muted);
+   font-family: var(--font-body);
+   font-size: px-to-rem(11);
+   white-space: nowrap;
+}
+
 .menubar__kbd {
    flex-shrink: 0;
    color: var(--mock-muted);
    font-family: var(--font-body);
    font-size: px-to-rem(11.5);
+   font-variant-numeric: tabular-nums;
    white-space: nowrap;
 }
 
@@ -253,6 +315,14 @@ const ACTIONS: ShelfAction[] = [
    gap: var(--space-xs);
    padding: px-to-rem(6) px-to-rem(7);
    border-radius: var(--radius-sm);
+
+   // Same amber selection as the window's sidebar, on the same row: two
+   // mocks of one app disagreeing about what is open reads as fake in the
+   // same way mismatched counts would.
+   &--active {
+      background-color: rgb(245 182 42 / 20%);
+      font-weight: var(--weight-label);
+   }
 }
 
 .menubar__row-label {
