@@ -58,7 +58,7 @@
                   <a
                      class="button"
                      :class="tier.featured ? 'button--primary' : ''"
-                     :href="ctaHref(tier)"
+                     :href="href"
                   >
                      {{ tier.cta }}
                   </a>
@@ -74,15 +74,9 @@
 </template>
 
 <script lang="ts" setup>
-import type { PricingTier } from "~/utils/content"
-
+/// Every tier follows the shared download destination, which is itself the
+/// contact page until the app ships.
 const { href } = useDownload()
-
-/// The Team tier is a conversation, not a checkout — so it points at the
-/// contact page regardless of whether a download URL is configured. The
-/// other two follow the shared destination, which is itself the contact
-/// page until the app ships.
-const ctaHref = (tier: PricingTier): string => (tier.id === "team" ? "/contact" : href.value)
 </script>
 
 <style scoped lang="scss">

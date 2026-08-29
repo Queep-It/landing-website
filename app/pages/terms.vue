@@ -13,8 +13,8 @@
          <h2>The licence</h2>
          <p>
             Buying Queep gives you a personal, non-exclusive licence to run it on the devices
-            signed in to your Apple Account. A Team licence extends that to the number of
-            seats purchased. You may not resell, sublicense or redistribute the app itself.
+            signed in to your Apple Account. You may not resell, sublicense or redistribute
+            the app itself.
          </p>
 
          <h2>Updates</h2>

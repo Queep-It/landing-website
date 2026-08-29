@@ -143,7 +143,7 @@ export const FLOW: FlowStep[] = [
 /**
  * Pricing.
  *
- * One free tier and two paid, and deliberately no per-seat or per-month
+ * One free tier and one paid, and deliberately no per-seat or per-month
  * ladder: this is a utility opened fifty times a day, and a recurring
  * charge for one is the thing the FAQ has to answer defensively. The paid
  * tier is a one-off licence with a year of updates.
@@ -181,21 +181,6 @@ export const PRICING: PricingTier[] = [
       ],
       cta: "Get Pro",
       featured: true,
-   },
-   {
-      id: "team",
-      name: "Team",
-      price: "$19",
-      period: "per seat, one-time",
-      blurb: "Pro for everyone, bought once, with shared collections on top.",
-      features: [
-         "Everything in Pro",
-         "Shared collections across the team",
-         "Volume licensing from five seats",
-         "Priority support",
-      ],
-      cta: "Talk to us",
-      featured: false,
    },
 ]
 

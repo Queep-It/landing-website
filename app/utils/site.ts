@@ -6,7 +6,7 @@
 /// --------------------------------------------------
 
 /** The single public contact address — shown in the footer and the policy. */
-export const SITE_EMAIL = "hello@queep.app"
+export const SITE_EMAIL = "queepit.app@gmail.com"
 
 /** Minimum OS versions, quoted in the hero note and the FAQ. */
 export const REQUIREMENTS = {
