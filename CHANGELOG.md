@@ -3,6 +3,21 @@
 All notable changes to this project will be documented here.
 Format based on [Keep a Changelog](https://keepachangelog.com/).
 
+## [1.1.0](https://github.com/Queep-It/landing-website/compare/v1.0.0...v1.1.0) (2026-08-29)
+
+### ✨ Features
+
+* add the menu bar shelf mock beside the app window ([6fa41cc](https://github.com/Queep-It/landing-website/commit/6fa41cc0eba7334796f9bd1e575d4afb3e836db0))
+
+### 🐛 Bug Fixes
+
+* cover the hero glyphs with the amber swipe ([1fcb730](https://github.com/Queep-It/landing-website/commit/1fcb730207ecb082a81cd5c5fbecd5f6d9244c6e)), closes [#14161a](https://github.com/Queep-It/landing-website/issues/14161a)
+* left-align the app mocks and unclip the tile grid ([83bde6e](https://github.com/Queep-It/landing-website/commit/83bde6ed12b1f2b6982f8a6f1d68a3a6b0faf8d9))
+
+### ♻️  Refactors
+
+* rename the product from queep to queep it ([fda5874](https://github.com/Queep-It/landing-website/commit/fda587459b42a6f9e453bd2c7b1ea84ad14e438c))
+
 ## 1.0.0 (2026-08-29)
 
 ### ✨ Features
