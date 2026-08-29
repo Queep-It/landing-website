@@ -192,11 +192,21 @@
       &::before {
          content: "";
          position: absolute;
-         inset-block-end: 0.06em;
+
+         /// Sized to cover the glyphs, not to underline them. The phrase is
+         /// painted `--accent-contrast` in BOTH themes (see above), so every
+         /// part of it that hangs outside this block is dark ink on whatever
+         /// the page is — which in the dark theme is the same near-black,
+         /// at 1:1. A 0.34em underline left the top two thirds of the
+         /// headline invisible. The ink spans -0.11em to 0.867em from the
+         /// box edge here (0.757em ascent, 0.22em descent, baseline sitting
+         /// 0.11em up); the bleed past both ends is what keeps it a marker
+         /// stroke rather than a tight box.
+         inset-block-end: -0.13em;
          inset-inline: -0.1em;
          z-index: -1;
-         block-size: 0.34em;
-         border-radius: px-to-rem(3);
+         block-size: 1.05em;
+         border-radius: px-to-rem(4);
          background-color: var(--accent-solid);
          transform: rotate(-0.6deg);
          // Wipes in from the left once the hero mounts. `transform` rather
