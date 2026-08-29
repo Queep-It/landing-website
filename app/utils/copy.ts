@@ -30,9 +30,9 @@ export interface SeoCopy {
 
 export const COPY = {
    site: {
-      name: "Queep",
+      name: "Queep It",
       tagline: "Keep it. Find it. Use it.",
-      blurb: "Queep is the place for the things worth keeping close. Save anything "
+      blurb: "Queep It is the place for the things worth keeping close. Save anything "
         + "quickly, find it fast, and use it whenever you need.",
    },
 
@@ -56,9 +56,9 @@ export const COPY = {
       titleAccent: "keeping close",
       titleAfter: ", in one place",
       lede: "Snippets, screenshots, files and documents scatter across a dozen apps the "
-        + "moment you save them. Queep catches all of it in one shelf — and gets it back "
+        + "moment you save them. Queep It catches all of it in one shelf — and gets it back "
         + "to you in a keystroke.",
-      primary: "Get Queep",
+      primary: "Get Queep It",
       primaryPending: "Join the beta",
       secondary: "See how it works",
       note: `Free while in beta · Requires ${REQUIREMENTS.macos} or later`,
@@ -79,7 +79,7 @@ export const COPY = {
    flow: {
       eyebrow: "The whole loop",
       title: "Keep it. Find it. Use it.",
-      lede: "Three verbs, and Queep is built around exactly those. Nothing in the app "
+      lede: "Three verbs, and Queep It is built around exactly those. Nothing in the app "
         + "exists that does not serve one of them.",
    },
 
@@ -99,9 +99,9 @@ export const COPY = {
 
    cta: {
       title: "Stop losing the good stuff",
-      lede: "Queep takes about a minute to set up and roughly no time at all to learn. "
+      lede: "Queep It takes about a minute to set up and roughly no time at all to learn. "
         + "Save one thing today and see whether you go back.",
-      primary: "Get Queep",
+      primary: "Get Queep It",
       primaryPending: "Join the beta",
       secondary: "Read the FAQ",
    },
@@ -160,23 +160,23 @@ export const COPY = {
  */
 export const SEO: Record<PageKey, SeoCopy> = {
    home: {
-      title: "Queep — Keep it. Find it. Use it.",
+      title: "Queep It — Keep it. Find it. Use it.",
       description: "One place on your Mac, iPhone and iPad for the snippets, images, files "
         + "and documents worth keeping close. Save fast, find faster, reuse anywhere.",
    },
    privacy: {
-      title: "Privacy Policy | Queep",
-      description: "What Queep stores, what it never uploads, and the choices you have. "
+      title: "Privacy Policy | Queep It",
+      description: "What Queep It stores, what it never uploads, and the choices you have. "
         + "Your library stays on your devices and in your own iCloud account.",
    },
    terms: {
-      title: "Terms of Use | Queep",
-      description: "The terms covering your use of Queep and this website, in plain "
+      title: "Terms of Use | Queep It",
+      description: "The terms covering your use of Queep It and this website, in plain "
         + "language: licence, acceptable use, availability and liability.",
    },
    contact: {
-      title: "Contact | Queep",
-      description: "Reach the Queep team about bugs, feature requests, billing or press. "
+      title: "Contact | Queep It",
+      description: "Reach the Queep It team about bugs, feature requests, billing or press. "
         + "One address, read by a person, answered within two working days.",
    },
 }

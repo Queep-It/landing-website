@@ -1,11 +1,11 @@
 <template>
    <div aria-hidden="true" class="menubar" role="presentation">
-      <!-- The system bar. Only the Queep icon is ours; the rest is enough
+      <!-- The system bar. Only the Queep It icon is ours; the rest is enough
            macOS furniture to place the shelf, drawn flat rather than
            imitated in detail. -->
       <div class="menubar__bar">
          <span class="menubar__app">
-            <QueepMark gap-color="var(--mock-sunken)" />
+            <QueepItMark gap-color="var(--mock-sunken)" />
          </span>
 
          <span class="menubar__status">
@@ -19,12 +19,12 @@
       <!-- The shelf itself, hanging off the icon. -->
       <div class="menubar__shelf">
          <p class="menubar__title">
-            Queep
+            Queep It
          </p>
 
          <span class="menubar__search">
             <AppIcon class="menubar__search-icon" name="search" />
-            <span class="menubar__search-text">Search Queep</span>
+            <span class="menubar__search-text">Search Queep It</span>
             <kbd class="menubar__kbd">&#8984;K</kbd>
          </span>
 
@@ -88,7 +88,7 @@ const SMART: ShelfRow[] = [
 
 const ACTIONS: ShelfAction[] = [
    { label: "New Item", keys: "⌘N" },
-   { label: "Open Queep", keys: "⌘," },
+   { label: "Open Queep It", keys: "⌘," },
 ]
 </script>
 

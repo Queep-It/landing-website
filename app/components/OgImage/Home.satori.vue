@@ -6,7 +6,7 @@
             <div class="og__mark-ring" />
             <div class="og__mark-flag" />
          </div>
-         Queep
+         Queep It
       </div>
       <div class="og__title">
          {{ title }}

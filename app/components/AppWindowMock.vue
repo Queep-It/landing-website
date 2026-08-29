@@ -19,9 +19,9 @@
          <aside class="window__sidebar">
             <p class="window__brand">
                <span class="window__brand-mark">
-                  <QueepMark gap-color="var(--mock-surface)" />
+                  <QueepItMark gap-color="var(--mock-surface)" />
                </span>
-               Queep
+               Queep It
             </p>
 
             <ul class="window__list">

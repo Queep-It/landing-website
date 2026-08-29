@@ -9,7 +9,7 @@ describe("llmsTxt", () => {
    it("opens with an H1 and a blockquote summary", () => {
       const lines = llmsTxt(SITE).split("\n")
 
-      expect(lines[0]).toBe("# Queep")
+      expect(lines[0]).toBe("# Queep It")
       expect(lines[2]?.startsWith("> ")).toBe(true)
    })
 

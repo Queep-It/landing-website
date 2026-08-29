@@ -2,11 +2,11 @@
 
 <img src="public/favicon.svg" alt="" width="88" height="88">
 
-# Queep — Landing Website
+# Queep It — Landing Website
 
 **Keep it. Find it. Use it.**
 
-The marketing site for Queep, a cross-Apple-platform app for the snippets, images, files and documents worth keeping close.
+The marketing site for Queep It, a cross-Apple-platform app for the snippets, images, files and documents worth keeping close.
 
 [**queep.app**](https://www.queep.app) · [Getting started](#getting-started) · [Contributing](.github/CONTRIBUTING.md) · [Changelog](CHANGELOG.md)
 
@@ -75,14 +75,14 @@ Three rules worth knowing before changing them:
   desk rather than as panels cut into it. Elevation is carried by shadow.
 
 Theme preference is system / light / dark, stored in `localStorage` under
-`queep-theme`, where "system" is the *absence* of the key and of the
+`queep-it-theme`, where "system" is the *absence* of the key and of the
 `data-theme` attribute. An inline script in `nuxt.config.ts` applies a stored
 choice before first paint; without it, dark-mode visitors get a cream flash on
 every load.
 
 ### The app mark
 
-`app/components/QueepMark.vue` draws the logo as SVG rather than shipping a
+`app/components/QueepItMark.vue` draws the logo as SVG rather than shipping a
 bitmap. It renders at 17px inside the window mock, 28px in the header, 38px in
 the footer and 56px in the closing CTA, in two themes — a PNG crisp at all of
 those is three files and a `srcset`. Drawing it also lets the knockout around
@@ -307,7 +307,7 @@ cp .env.example .env
 `NUXT_PUBLIC_DOWNLOAD_URL` is the one worth knowing about. Leave it empty and
 every call to action becomes a waitlist link with waitlist wording, handled in
 one place by `app/composables/useDownload.ts` — that is what stops a "Get
-Queep" button shipping while it points at nothing.
+Queep It" button shipping while it points at nothing.
 
 > ⚠️ Never commit `.env` — it is gitignored.
 

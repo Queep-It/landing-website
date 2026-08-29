@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# SEO verification smoke test for the Queep landing site (Nuxt SEO suite).
+# SEO verification smoke test for the Queep It landing site (Nuxt SEO suite).
 #
 # Boots the production build locally and asserts every SEO surface renders:
 # robots.txt, sitemap, llms.txt, meta/OG/Twitter tags, canonical, JSON-LD,

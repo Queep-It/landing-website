@@ -11,7 +11,7 @@ of them have a quirk worth knowing before you regenerate them.
 
 ## The two quirks
 
-**The favicon is not the app mark.** `components/QueepMark.vue` draws the
+**The favicon is not the app mark.** `components/QueepItMark.vue` draws the
 mark with a *transparent* knockout between the bookmark and the Q, so it
 adapts to whatever surface it sits on. A favicon has no such surface — it
 is composited against browser chrome that changes with the OS theme — so
