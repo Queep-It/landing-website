@@ -3,6 +3,12 @@
 All notable changes to this project will be documented here.
 Format based on [Keep a Changelog](https://keepachangelog.com/).
 
+## [1.5.0](https://github.com/Queep-It/landing-website/compare/v1.4.1...v1.5.0) (2026-08-30)
+
+### ✨ Features
+
+* link the facebook page from the footer ([b4b5e88](https://github.com/Queep-It/landing-website/commit/b4b5e883d83ea5c535e71defde98d77c1667c19c))
+
 ## [1.4.1](https://github.com/Queep-It/landing-website/compare/v1.4.0...v1.4.1) (2026-08-30)
 
 ### 🐛 Bug Fixes
