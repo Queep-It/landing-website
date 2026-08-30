@@ -9,24 +9,6 @@
 export const SITE_EMAIL = "queepit.app@gmail.com"
 
 /**
- * Where the "Download on the App Store" badge points.
- *
- * TODO: placeholder — replace before launch.
- *   1. Swap this for the real listing URL once the app has an App Store ID.
- *      The `id000000000` below is deliberately invalid so a shipped
- *      placeholder 404s loudly rather than looking plausible.
- *   2. Replace the drawn badge in `AppStoreBadge.vue` with Apple's official
- *      artwork. Apple's marketing guidelines require the supplied badge, not
- *      a recreation, and set minimum sizes and clear space around it — a
- *      hand-drawn approximation is not compliant for production.
- *   3. Fold this into `NUXT_PUBLIC_DOWNLOAD_URL` / `useDownload` so the badge
- *      obeys the same pre-release guard as every other call to action. Right
- *      now it does not: the badge renders and links out even while the rest
- *      of the page is still showing waitlist wording.
- */
-export const APP_STORE_URL = "https://apps.apple.com/app/queep-it/id000000000"
-
-/**
  * The public social profiles, in the order they appear in the footer.
  *
  * Kept here beside the other outward-facing constants rather than in
@@ -38,13 +20,33 @@ export interface SocialLink {
    label: string
    href: string
    icon: SocialIconName
+   /**
+    * Whether the rendered link carries `rel="me"`.
+    *
+    * Mastodon verifies the website on a profile by fetching that site and
+    * looking for a `rel="me"` link pointing back at the profile — the
+    * green tick is only granted when both halves of the pair exist. So
+    * this footer link is load-bearing: drop it, or drop the `rel`, and the
+    * profile silently loses its verification on Mastodon's next re-check.
+    *
+    * Only set where a platform actually consumes it. It is a claim that
+    * the profile and this site are the same identity, and marking links we
+    * have no verification arrangement with just makes the claim noise.
+    */
+   me?: boolean
 }
 
-export type SocialIconName = "x" | "instagram"
+export type SocialIconName = "x" | "instagram" | "linkedin" | "mastodon" | "bluesky"
 
 export const SOCIAL_LINKS: SocialLink[] = [
    { label: "X", href: "https://x.com/queepitapp", icon: "x" },
    { label: "Instagram", href: "https://www.instagram.com/queepit.app/", icon: "instagram" },
+   { label: "LinkedIn", href: "https://www.linkedin.com/company/queep-it/", icon: "linkedin" },
+   { label: "Mastodon", href: "https://mastodon.social/@queepit", icon: "mastodon", me: true },
+   // No `me` here: Bluesky verifies by making the handle a domain you
+   // control (DNS or `/.well-known/atproto-did`), not by a link back, and
+   // the handle above is still the default `.bsky.social` one.
+   { label: "Bluesky", href: "https://bsky.app/profile/queepit.bsky.social", icon: "bluesky" },
 ]
 
 /** Minimum OS versions, quoted in the hero note and the FAQ. */

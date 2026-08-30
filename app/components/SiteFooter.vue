@@ -17,7 +17,7 @@
                   <a
                      :aria-label="link.label"
                      :href="link.href"
-                     rel="noopener"
+                     :rel="link.me ? 'me noopener' : 'noopener'"
                      target="_blank"
                      :title="link.label"
                   >

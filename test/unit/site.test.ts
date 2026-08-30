@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest"
 
-import { downloadTarget } from "../../app/utils/site"
+import { downloadTarget, SOCIAL_LINKS } from "../../app/utils/site"
 
 describe("downloadTarget", () => {
    it("reports unavailable for an unset URL", () => {
@@ -18,5 +18,21 @@ describe("downloadTarget", () => {
          available: true,
          href: "https://apps.apple.com/app/queep",
       })
+   })
+})
+
+// Mastodon only keeps the profile's website verified for as long as this
+// site links back with `rel="me"`. Nothing on the page looks broken if the
+// flag is dropped, so the pair is asserted here rather than left to be
+// noticed the next time someone opens the profile.
+describe("SOCIAL_LINKS", () => {
+   it("marks the Mastodon profile, and only that one, with rel=me", () => {
+      expect(SOCIAL_LINKS.filter((link) => link.me).map((link) => link.href))
+         .toEqual(["https://mastodon.social/@queepit"])
+   })
+
+   it("points every entry at an absolute https profile", () => {
+      for (const link of SOCIAL_LINKS)
+         expect(link.href).toMatch(/^https:\/\//)
    })
 })

@@ -7,7 +7,7 @@
    <a
       aria-label="Download on the App Store"
       class="store-badge"
-      :href="APP_STORE_URL"
+      :href="href"
       rel="noopener"
       target="_blank"
    >
@@ -37,15 +37,27 @@
 /// mark on this page is: it stays crisp at any zoom, re-themes with the
 /// page, and costs no request in the hero.
 ///
-/// That trade is the one thing to revisit before launch. Apple's marketing
-/// guidelines require their supplied artwork rather than a recreation of
-/// it, so this is a stand-in — see the TODO on `APP_STORE_URL` in
-/// `utils/site.ts`, which also covers the placeholder link and the
-/// pre-release guard this badge currently sidesteps.
+/// TODO: that trade is the one thing to revisit before launch. Apple's
+/// marketing guidelines require their supplied artwork rather than a
+/// recreation of it, and set minimum sizes and clear space around it, so
+/// this drawing is a stand-in and is not compliant for production.
 ///
 /// The wording is hardcoded rather than pulled from `COPY`: "Download on
 /// the App Store" is Apple's prescribed string, not copy of ours to edit,
 /// and it is not translated by us either.
+///
+/// The destination is a required prop rather than a constant read from
+/// `utils/site.ts`. That is the pre-release guard: there is no App Store
+/// listing to point at until `NUXT_PUBLIC_DOWNLOAD_URL` is set, and a
+/// badge reading "Download on the App Store" cannot be relabelled into a
+/// waitlist link the way the pills can — Apple's string is fixed. So the
+/// only correct pre-release rendering is none at all, and making the URL
+/// come from the caller means a call site has to have narrowed on
+/// `useDownload().available` to have one to pass.
+defineProps<{
+   /** The App Store listing. Only ever the resolved `useDownload().href`. */
+   href: string
+}>()
 
 /// The Apple mark, on the same 24px grid as `AppIcon` so the two sit at
 /// matching optical weight. Two paths because the leaf is a separate

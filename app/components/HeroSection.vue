@@ -26,8 +26,11 @@
          </a>
       </div>
 
-      <div class="hero__store" data-reveal-target>
-         <AppStoreBadge />
+      <!-- Dropped entirely before launch rather than shown inert: see the
+           note in `AppStoreBadge` on why the badge has no pre-release
+           state of its own. -->
+      <div v-if="available" class="hero__store" data-reveal-target>
+         <AppStoreBadge :href="href" />
       </div>
 
       <p class="hero__note" data-reveal-target>
@@ -53,7 +56,7 @@
 </template>
 
 <script lang="ts" setup>
-const { href, label } = useDownload()
+const { available, href, label } = useDownload()
 
 const primaryLabel = label(COPY.hero.primary, COPY.hero.primaryPending)
 
