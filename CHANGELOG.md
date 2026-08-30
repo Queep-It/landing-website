@@ -3,6 +3,12 @@
 All notable changes to this project will be documented here.
 Format based on [Keep a Changelog](https://keepachangelog.com/).
 
+## [1.3.0](https://github.com/Queep-It/landing-website/compare/v1.2.0...v1.3.0) (2026-08-30)
+
+### ✨ Features
+
+* add mastodon and bluesky links, and guard the app store badge ([63ec0e4](https://github.com/Queep-It/landing-website/commit/63ec0e489a9e69c56aa71a7a2e99cd486cb26dbf))
+
 ## [1.2.0](https://github.com/Queep-It/landing-website/compare/v1.1.0...v1.2.0) (2026-08-30)
 
 ### ✨ Features
