@@ -70,8 +70,9 @@ export const COPY = {
 
    features: {
       eyebrow: "One shelf",
-      title: "Four kinds of thing, one way to handle them",
-      lede: "One app instead of four, with each kind of thing handled properly.",
+      title: "Every kind of thing, one way to handle it",
+      lede: "One app instead of a notes file, a downloads folder and a clipboard tool "
+        + "— each kind handled properly.",
    },
 
    flow: {
