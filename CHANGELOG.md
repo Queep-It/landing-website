@@ -3,6 +3,13 @@
 All notable changes to this project will be documented here.
 Format based on [Keep a Changelog](https://keepachangelog.com/).
 
+## [1.2.0](https://github.com/Queep-It/landing-website/compare/v1.1.0...v1.2.0) (2026-08-30)
+
+### ✨ Features
+
+* add the app store badge to the hero ([580f4a3](https://github.com/Queep-It/landing-website/commit/580f4a328997da6d325b17d526ffdd96a61c3864))
+* link the x and instagram profiles from the footer ([ea9f8da](https://github.com/Queep-It/landing-website/commit/ea9f8dae682953d762442f97e4c48486f721337f))
+
 ## [1.1.0](https://github.com/Queep-It/landing-website/compare/v1.0.0...v1.1.0) (2026-08-29)
 
 ### ✨ Features
