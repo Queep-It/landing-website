@@ -157,7 +157,12 @@ done
 section "homepage structured data"
 HOME="$(curl -s "$BASE/")"
 assert_contains "SoftwareApplication entity" "$HOME" "\"@type\":\s*\"SoftwareApplication\""
-assert_contains "FAQPage entity"             "$HOME" "\"@type\":\s*\"FAQPage\""
+# `FAQPage` arrives as a member of an array — `"@type":["WebPage","FAQPage"]`
+# — because `defineWebPage` merges it onto the existing WebPage node rather
+# than emitting a second one. That is valid schema.org and Google reads it,
+# but a pattern anchored on `"@type":"FAQPage"` does not match it, and this
+# check failed for months against markup that was correct all along.
+assert_contains "FAQPage entity"             "$HOME" "\"@type\":\s*(\"FAQPage\"|\[[^]]*\"FAQPage\")"
 
 # ── summary ──────────────────────────────────────────────────────────────────
 printf "\n${B}Summary${X}  ${G}%d passed${X}  ${R}%d failed${X}\n" "$PASS" "$FAIL"

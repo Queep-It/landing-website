@@ -18,6 +18,7 @@
                <p class="flow__verb">
                   <span class="flow__index">{{ index + 1 }}</span>
                   {{ step.verb }}
+                  <AppIcon class="flow__icon" :name="step.icon" />
                </p>
                <h3 class="flow__title">
                   {{ step.title }}
@@ -73,6 +74,16 @@
       font-weight: var(--weight-label);
       letter-spacing: 0.08em;
       text-transform: uppercase;
+   }
+
+   /// Sits at the end of the verb line rather than above the title, so the
+   /// row reads verb-then-mark and the card keeps a single column of text.
+   /// Decorative — `AppIcon` is `aria-hidden`, and the verb beside it
+   /// already names the step.
+   &__icon {
+      margin-inline-start: auto;
+      color: var(--accent);
+      font-size: px-to-rem(19);
    }
 
    &__index {

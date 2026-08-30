@@ -27,4 +27,16 @@ export function useAppSeo(options: AppSeoOptions) {
       twitterTitle: title,
       twitterDescription: description,
    })
+
+   /// The card image. `nuxt-og-image` emits nothing until a page registers
+   /// one, so the module, the `ogImage` defaults in `nuxt.config.ts` and
+   /// `OgImage/Home.satori.vue` were all in place while every route shipped
+   /// with no `og:image` at all — a link to the site previewed as a bare
+   /// text row anywhere it was pasted.
+   ///
+   /// Registered here rather than per page for the reason the rest of this
+   /// composable exists: a page that forgets is a page whose card silently
+   /// regresses, and `twitterCard: "summary_large_image"` above already
+   /// promises an image to every crawler that reads it.
+   defineOgImage("Home", { title, subtitle: description })
 }

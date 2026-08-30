@@ -55,9 +55,8 @@ export const COPY = {
       titleBefore: "Everything worth",
       titleAccent: "keeping close",
       titleAfter: ", in one place",
-      lede: "Snippets, screenshots, files and documents scatter across a dozen apps the "
-        + "moment you save them. Queep It catches all of it in one shelf — and gets it back "
-        + "to you in a keystroke.",
+      lede: "Snippets, screenshots and files scatter the moment you save them. One shelf "
+        + "catches all of it, and gives it back in a keystroke.",
       primary: "Get Queep It",
       primaryPending: "Join the beta",
       secondary: "See how it works",
@@ -72,22 +71,19 @@ export const COPY = {
    features: {
       eyebrow: "One shelf",
       title: "Four kinds of thing, one way to handle them",
-      lede: "Text, images, files and documents each get the treatment they deserve — "
-        + "without four separate apps, four sync setups and four places to look.",
+      lede: "One app instead of four, with each kind of thing handled properly.",
    },
 
    flow: {
       eyebrow: "The whole loop",
       title: "Keep it. Find it. Use it.",
-      lede: "Three verbs, and Queep It is built around exactly those. Nothing in the app "
-        + "exists that does not serve one of them.",
+      lede: "Three verbs, and nothing in the app that does not serve one of them.",
    },
 
    pricing: {
       eyebrow: "Pricing",
       title: "Free to start, one price to own",
-      lede: "No subscription treadmill for a utility you use fifty times a day. Pay once "
-        + "for the version you have, keep it forever.",
+      lede: "No subscription for a utility you use fifty times a day. Pay once, keep it.",
       billingNote: "Prices in USD. Regional pricing applies on the App Store.",
    },
 
@@ -99,8 +95,7 @@ export const COPY = {
 
    cta: {
       title: "Stop losing the good stuff",
-      lede: "Queep It takes about a minute to set up and roughly no time at all to learn. "
-        + "Save one thing today and see whether you go back.",
+      lede: "A minute to set up, and no time at all to learn.",
       primary: "Get Queep It",
       primaryPending: "Join the beta",
       secondary: "Read the FAQ",
@@ -159,24 +154,29 @@ export const COPY = {
  * adding a page without its metadata is a type error rather than a page that
  * silently ships with the site-wide fallback title.
  */
+/// Titles carry NO brand suffix. Nuxt SEO appends ` | {siteName}` from the
+/// `site.name` in `nuxt.config.ts`, so spelling the brand out here too
+/// rendered every page twice over — "Privacy Policy | Queep It | Queep It".
+/// One source of truth for the suffix; these are just the page part, and
+/// the < 60 char budget below is measured with the suffix added.
 export const SEO: Record<PageKey, SeoCopy> = {
    home: {
-      title: "Queep It — Keep it. Find it. Use it.",
+      title: "Keep it. Find it. Use it.",
       description: "One place on your Mac, iPhone and iPad for the snippets, images, files "
         + "and documents worth keeping close. Save fast, find faster, reuse anywhere.",
    },
    privacy: {
-      title: "Privacy Policy | Queep It",
+      title: "Privacy Policy",
       description: "What Queep It stores, what it never uploads, and the choices you have. "
         + "Your library stays on your devices and in your own iCloud account.",
    },
    terms: {
-      title: "Terms of Use | Queep It",
+      title: "Terms of Use",
       description: "The terms covering your use of Queep It and this website, in plain "
         + "language: licence, acceptable use, availability and liability.",
    },
    contact: {
-      title: "Contact | Queep It",
+      title: "Contact",
       description: "Reach the Queep It team about bugs, feature requests, billing or press. "
         + "One address, read by a person, answered within two working days.",
    },

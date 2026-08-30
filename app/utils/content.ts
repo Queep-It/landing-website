@@ -40,6 +40,10 @@ export interface FlowStep {
    id: string
    /** The verb from the tagline. Rendered as the step's display number. */
    verb: string
+   /// Carries the step at a glance so the body underneath can stop
+   /// describing the mechanism and just name it. The three map onto the
+   /// three verbs exactly, which is why the set already had them.
+   icon: IconName
    title: string
    body: string
 }
@@ -75,43 +79,43 @@ export const FEATURES: Feature[] = [
       id: "capture",
       icon: "bolt",
       title: "Capture without switching",
-      body: "A global hotkey and a menu bar shelf. Copy, drag or share anything into "
-        + "Queep It without leaving the app you are in — no window to find, no folder to pick.",
+      body: "One hotkey, from whatever app you are already in. No window to find, no "
+        + "folder to pick.",
    },
    {
       id: "types",
       icon: "layers",
       title: "Text, images, files, documents",
-      body: "Each type gets a real preview and the actions that suit it. Code keeps its "
-        + "syntax highlighting, PDFs open to the right page, images scale to fit the tile.",
+      body: "A real preview for each: code keeps its highlighting, PDFs open to the "
+        + "right page.",
    },
    {
       id: "search",
       icon: "search",
       title: "Find it before you finish typing",
-      body: "Search runs across names, contents and extracted text from images and PDFs. "
-        + "Results narrow on every keystroke, and the top hit is usually the right one.",
+      body: "Across names, contents, and text pulled out of images and PDFs. Narrows on "
+        + "every keystroke.",
    },
    {
       id: "organise",
       icon: "tag",
       title: "Collections that tag themselves",
-      body: "Queep It suggests a collection and a few tags the moment something lands. Accept "
-        + "with Return, change it with a keystroke, or ignore it entirely — untagged still works.",
+      body: "A collection and a few tags, suggested the moment something lands. Accept "
+        + "with Return, or ignore them.",
    },
    {
       id: "reuse",
       icon: "clipboard",
       title: "Paste straight back out",
-      body: "Pick an item and it goes to the clipboard in the format you need — plain text, "
-        + "rich text, a file path, or the file itself, dropped where your cursor is.",
+      body: "Back to the clipboard in the format you need — plain text, rich text, a "
+        + "path, or the file itself.",
    },
    {
       id: "sync",
       icon: "devices",
       title: "The same shelf on every device",
-      body: "Saved on the Mac, there on the iPhone. Sync runs through your own iCloud "
-        + "account, so there is no Queep It server holding your library and no account to create.",
+      body: "Saved on the Mac, there on the iPhone. Through your own iCloud, so there is "
+        + "no server and no account.",
    },
 ]
 
@@ -120,23 +124,23 @@ export const FLOW: FlowStep[] = [
    {
       id: "keep",
       verb: "Keep",
+      icon: "bolt",
       title: "Save it in one motion",
-      body: "Hit the hotkey or drop it on the menu bar icon. Queep It takes the thing, works "
-        + "out what it is, and gets out of the way.",
+      body: "Hotkey, or drop it on the menu bar icon. It works out the rest.",
    },
    {
       id: "find",
       verb: "Find",
+      icon: "search",
       title: "Get it back in a keystroke",
-      body: "Open the shelf, start typing. Search reads inside documents and images, so "
-        + "you can look for the words you remember rather than the filename you did not choose.",
+      body: "Open the shelf and type. It reads inside documents and images, not just names.",
    },
    {
       id: "use",
       verb: "Use",
+      icon: "clipboard",
       title: "Put it where it needs to go",
-      body: "Return pastes it into whatever is in front of you. Drag it into a message, a "
-        + "document or a folder. The shelf closes itself behind you.",
+      body: "Return pastes it where you are, or drag it out. The shelf closes behind you.",
    },
 ]
 
