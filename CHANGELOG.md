@@ -3,6 +3,12 @@
 All notable changes to this project will be documented here.
 Format based on [Keep a Changelog](https://keepachangelog.com/).
 
+## [1.4.1](https://github.com/Queep-It/landing-website/compare/v1.4.0...v1.4.1) (2026-08-30)
+
+### 🐛 Bug Fixes
+
+* drop the four from the features heading and lede ([b54bf0d](https://github.com/Queep-It/landing-website/commit/b54bf0d0e484991b1d758921f5f4f6b46c12b2d1))
+
 ## [1.4.0](https://github.com/Queep-It/landing-website/compare/v1.3.0...v1.4.0) (2026-08-30)
 
 ### ✨ Features
