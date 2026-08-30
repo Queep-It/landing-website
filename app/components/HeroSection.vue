@@ -26,6 +26,10 @@
          </a>
       </div>
 
+      <div class="hero__store" data-reveal-target>
+         <AppStoreBadge />
+      </div>
+
       <p class="hero__note" data-reveal-target>
          {{ COPY.hero.note }}
       </p>
@@ -121,6 +125,15 @@ onMounted(() => {
          grid-template-columns: minmax(0, 1fr);
          gap: var(--space-xl);
       }
+   }
+
+   // The badge sits under the buttons rather than in the row with them: it
+   // is a different kind of control — a borrowed object at a fixed size,
+   // not one of this site's pills — and lining it up beside them invites a
+   // comparison of two things that will never match height or corner.
+   &__store {
+      display: flex;
+      justify-content: center;
    }
 
    &__shot {

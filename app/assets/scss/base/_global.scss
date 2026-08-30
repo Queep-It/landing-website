@@ -76,6 +76,16 @@
    --shadow-lg: 0 8px 16px rgb(38 30 16 / 7%), 0 24px 48px rgb(38 30 16 / 12%);
    --shadow-xl: 0 12px 24px rgb(38 30 16 / 8%), 0 48px 96px rgb(38 30 16 / 16%);
 
+   /// The App Store badge, which is not ours to restyle. Apple supplies a
+   /// black badge for light backgrounds and a white one for dark, so these
+   /// invert wholesale in `themes/_dark.scss` rather than shifting a shade
+   /// the way the rest of the palette does. Pure black and pure white on
+   /// purpose: the badge is a borrowed object sitting on the page, not a
+   /// surface of it, and warming it to the cream would be the wrong call.
+   --store-badge-surface: #000000;
+   --store-badge-ink: #ffffff;
+   --store-badge-line: #000000;
+
    /// Focus. The reset strips `outline` from every form control, so this is
    /// the only thing standing between keyboard users and an invisible
    /// cursor. Translucent rather than a solid tint, so it reads on any

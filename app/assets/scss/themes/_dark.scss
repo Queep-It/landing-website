@@ -46,6 +46,12 @@
    --accent-contrast: #14161a;
    --accent-soft: #2b2415;
 
+   // The badge swaps to Apple's white variant, and picks up a line so it
+   // does not bleed into a light-ish surface behind it.
+   --store-badge-surface: #ffffff;
+   --store-badge-ink: #000000;
+   --store-badge-line: #d5d8de;
+
    // Lines.
    --line: #2a2e36;
    --line-strong: #3d434e;

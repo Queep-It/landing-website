@@ -8,6 +8,24 @@
 /** The single public contact address — shown in the footer and the policy. */
 export const SITE_EMAIL = "queepit.app@gmail.com"
 
+/**
+ * Where the "Download on the App Store" badge points.
+ *
+ * TODO: placeholder — replace before launch.
+ *   1. Swap this for the real listing URL once the app has an App Store ID.
+ *      The `id000000000` below is deliberately invalid so a shipped
+ *      placeholder 404s loudly rather than looking plausible.
+ *   2. Replace the drawn badge in `AppStoreBadge.vue` with Apple's official
+ *      artwork. Apple's marketing guidelines require the supplied badge, not
+ *      a recreation, and set minimum sizes and clear space around it — a
+ *      hand-drawn approximation is not compliant for production.
+ *   3. Fold this into `NUXT_PUBLIC_DOWNLOAD_URL` / `useDownload` so the badge
+ *      obeys the same pre-release guard as every other call to action. Right
+ *      now it does not: the badge renders and links out even while the rest
+ *      of the page is still showing waitlist wording.
+ */
+export const APP_STORE_URL = "https://apps.apple.com/app/queep-it/id000000000"
+
 /** Minimum OS versions, quoted in the hero note and the FAQ. */
 export const REQUIREMENTS = {
    macos: "macOS 14 Sonoma",
