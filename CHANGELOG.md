@@ -3,6 +3,12 @@
 All notable changes to this project will be documented here.
 Format based on [Keep a Changelog](https://keepachangelog.com/).
 
+## [1.4.0](https://github.com/Queep-It/landing-website/compare/v1.3.0...v1.4.0) (2026-08-30)
+
+### ✨ Features
+
+* tighten the copy, mark the flow steps and fix the seo metadata ([fc6e095](https://github.com/Queep-It/landing-website/commit/fc6e095667921442930a9ae7944160e94f47e24d))
+
 ## [1.3.0](https://github.com/Queep-It/landing-website/compare/v1.2.0...v1.3.0) (2026-08-30)
 
 ### ✨ Features
