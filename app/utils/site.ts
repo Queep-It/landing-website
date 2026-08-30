@@ -36,11 +36,12 @@ export interface SocialLink {
    me?: boolean
 }
 
-export type SocialIconName = "x" | "instagram" | "linkedin" | "mastodon" | "bluesky"
+export type SocialIconName = "x" | "instagram" | "facebook" | "linkedin" | "mastodon" | "bluesky"
 
 export const SOCIAL_LINKS: SocialLink[] = [
    { label: "X", href: "https://x.com/queepitapp", icon: "x" },
    { label: "Instagram", href: "https://www.instagram.com/queepit.app/", icon: "instagram" },
+   { label: "Facebook", href: "https://www.facebook.com/queepitapp", icon: "facebook" },
    { label: "LinkedIn", href: "https://www.linkedin.com/company/queep-it/", icon: "linkedin" },
    { label: "Mastodon", href: "https://mastodon.social/@queepit", icon: "mastodon", me: true },
    // No `me` here: Bluesky verifies by making the handle a domain you

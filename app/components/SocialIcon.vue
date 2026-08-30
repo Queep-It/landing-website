@@ -76,6 +76,16 @@ const PATHS: Record<SocialIconName, string> = {
       a4.99 4.99 0 1 0 0 9.98 4.99 4.99 0 0 0 0-9.98Zm6.35-.2
       a1.17 1.17 0 1 1-2.33 0 1.17 1.17 0 0 1 2.33 0Z`,
 
+   // The "f" alone, without the blue disc the full logo sits in — the same
+   // call the "in" above makes, and for the same reason: dropped in beside
+   // these open shapes, the filled disc reads as a button rather than as a
+   // member of the set. Scaled to the LinkedIn mark's optical box (y 1.95
+   // to 21.55) and centred, so the row does not step in weight.
+   facebook: `M16.018 6.295h2.352V2.211
+      C17.962 2.154 16.565 1.95 14.94 1.95
+      c-3.389 0-5.717 2.131-5.717 6.043V11.75H5.63v4.573h3.593V21.55h4.41v-5.227h3.446l.547-4.573h-3.994V8.443
+      c0-1.323 .359-2.148 2.385-2.148Z`,
+
    // The rounded shield with the "m" punched out of it. Unlike the marks
    // above, this one is not redrawn: it is Mastodon's own artwork verbatim
    // from Simple Icons (CC0-1.0), which already publishes it on the same
