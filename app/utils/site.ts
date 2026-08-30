@@ -26,6 +26,27 @@ export const SITE_EMAIL = "queepit.app@gmail.com"
  */
 export const APP_STORE_URL = "https://apps.apple.com/app/queep-it/id000000000"
 
+/**
+ * The public social profiles, in the order they appear in the footer.
+ *
+ * Kept here beside the other outward-facing constants rather than in
+ * `copy.ts`: the label is not copy to reword, it is the platform's own
+ * name and the accessible name of the link.
+ */
+export interface SocialLink {
+   /** Platform name — used as the link's accessible name. */
+   label: string
+   href: string
+   icon: SocialIconName
+}
+
+export type SocialIconName = "x" | "instagram"
+
+export const SOCIAL_LINKS: SocialLink[] = [
+   { label: "X", href: "https://x.com/queepitapp", icon: "x" },
+   { label: "Instagram", href: "https://www.instagram.com/queepit.app/", icon: "instagram" },
+]
+
 /** Minimum OS versions, quoted in the hero note and the FAQ. */
 export const REQUIREMENTS = {
    macos: "macOS 14 Sonoma",

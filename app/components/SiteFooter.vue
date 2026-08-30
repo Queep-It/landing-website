@@ -11,6 +11,20 @@
             <p class="site-footer__tagline">
                {{ COPY.footer.tagline }}
             </p>
+
+            <ul :aria-label="COPY.footer.socialLabel" class="site-footer__social">
+               <li v-for="link in SOCIAL_LINKS" :key="link.href">
+                  <a
+                     :aria-label="link.label"
+                     :href="link.href"
+                     rel="noopener"
+                     target="_blank"
+                     :title="link.label"
+                  >
+                     <SocialIcon :name="link.icon" />
+                  </a>
+               </li>
+            </ul>
          </div>
 
          <nav :aria-label="COPY.footer.navLabel" class="site-footer__nav">
@@ -111,6 +125,44 @@ const hrefFor = (hash: string): string => (route.path === "/" ? hash : `/${hash}
       font-size: px-to-rem(17);
       font-weight: var(--weight-heading);
       letter-spacing: -0.02em;
+   }
+
+   /// Icon-only links, so each one carries its platform name as an
+   /// `aria-label` — the mark alone is not an accessible name, and "link,
+   /// image" is what a screen reader would otherwise announce twice.
+   /// `title` too, so a sighted visitor who does not recognise a mark gets
+   /// the same string on hover.
+   &__social {
+      display: flex;
+      gap: var(--space-2xs);
+      margin-block-start: var(--space-2xs);
+      list-style: none;
+
+      a {
+         display: grid;
+         place-items: center;
+         // 40px: an icon sized to the footer's type would be a target well
+         // under the 24px minimum, and these sit close enough together to
+         // mis-tap on a phone.
+         inline-size: px-to-rem(40);
+         block-size: px-to-rem(40);
+         border: 1px solid var(--line);
+         border-radius: var(--radius-pill);
+         font-size: px-to-rem(17);
+         transition:
+            color var(--duration) var(--ease),
+            border-color var(--duration) var(--ease);
+
+         &:hover {
+            border-color: var(--line-strong);
+            color: var(--ink);
+         }
+
+         &:focus-visible {
+            outline: 2px solid var(--accent-solid);
+            outline-offset: 3px;
+         }
+      }
    }
 
    &__nav {

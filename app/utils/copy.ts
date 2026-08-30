@@ -117,6 +117,7 @@ export const COPY = {
       privacy: "Privacy",
       terms: "Terms",
       contact: "Contact",
+      socialLabel: "Queep It on social media",
    },
 
    theme: {
