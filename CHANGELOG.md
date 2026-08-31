@@ -3,6 +3,12 @@
 All notable changes to this project will be documented here.
 Format based on [Keep a Changelog](https://keepachangelog.com/).
 
+## [1.6.0](https://github.com/Queep-It/landing-website/compare/v1.5.0...v1.6.0) (2026-08-31)
+
+### ✨ Features
+
+* rename the product to queepit and move the site to queepit.com ([b4a963a](https://github.com/Queep-It/landing-website/commit/b4a963ae487dce3cd1606c0690d3ad97b407bd66))
+
 ## [1.5.0](https://github.com/Queep-It/landing-website/compare/v1.4.1...v1.5.0) (2026-08-30)
 
 ### ✨ Features
