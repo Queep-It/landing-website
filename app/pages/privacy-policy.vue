@@ -13,7 +13,7 @@
       <div class="prose">
          <h2>What the app stores</h2>
          <p>
-            Everything you save into Queep It — text, images, files and documents, along with
+            Everything you save into Queepit — text, images, files and documents, along with
             the collections and tags attached to them — is written to a local library on the
             device you saved it on. If you turn sync on, that library is replicated between
             your own devices through your personal iCloud account. It does not pass through
@@ -22,7 +22,7 @@
 
          <h2>What the app sends</h2>
          <p>
-            Queep It contacts the network for two things only, and both can be turned off in
+            Queepit contacts the network for two things only, and both can be turned off in
             Settings:
          </p>
          <ul>

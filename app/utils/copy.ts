@@ -30,9 +30,9 @@ export interface SeoCopy {
 
 export const COPY = {
    site: {
-      name: "Queep It",
+      name: "Queepit",
       tagline: "Keep it. Find it. Use it.",
-      blurb: "Queep It is the place for the things worth keeping close. Save anything "
+      blurb: "Queepit is the place for the things worth keeping close. Save anything "
         + "quickly, find it fast, and use it whenever you need.",
    },
 
@@ -57,7 +57,7 @@ export const COPY = {
       titleAfter: ", in one place",
       lede: "Snippets, screenshots and files scatter the moment you save them. One shelf "
         + "catches all of it, and gives it back in a keystroke.",
-      primary: "Get Queep It",
+      primary: "Get Queepit",
       primaryPending: "Join the beta",
       secondary: "See how it works",
       note: `Free while in beta · Requires ${REQUIREMENTS.macos} or later`,
@@ -97,7 +97,7 @@ export const COPY = {
    cta: {
       title: "Stop losing the good stuff",
       lede: "A minute to set up, and no time at all to learn.",
-      primary: "Get Queep It",
+      primary: "Get Queepit",
       primaryPending: "Join the beta",
       secondary: "Read the FAQ",
    },
@@ -113,7 +113,7 @@ export const COPY = {
       privacy: "Privacy",
       terms: "Terms",
       contact: "Contact",
-      socialLabel: "Queep It on social media",
+      socialLabel: "Queepit on social media",
    },
 
    theme: {
@@ -157,7 +157,7 @@ export const COPY = {
  */
 /// Titles carry NO brand suffix. Nuxt SEO appends ` | {siteName}` from the
 /// `site.name` in `nuxt.config.ts`, so spelling the brand out here too
-/// rendered every page twice over — "Privacy Policy | Queep It | Queep It".
+/// rendered every page twice over — "Privacy Policy | Queepit | Queepit".
 /// One source of truth for the suffix; these are just the page part, and
 /// the < 60 char budget below is measured with the suffix added.
 export const SEO: Record<PageKey, SeoCopy> = {
@@ -168,17 +168,17 @@ export const SEO: Record<PageKey, SeoCopy> = {
    },
    privacy: {
       title: "Privacy Policy",
-      description: "What Queep It stores, what it never uploads, and the choices you have. "
+      description: "What Queepit stores, what it never uploads, and the choices you have. "
         + "Your library stays on your devices and in your own iCloud account.",
    },
    terms: {
       title: "Terms of Use",
-      description: "The terms covering your use of Queep It and this website, in plain "
+      description: "The terms covering your use of Queepit and this website, in plain "
         + "language: licence, acceptable use, availability and liability.",
    },
    contact: {
       title: "Contact",
-      description: "Reach the Queep It team about bugs, feature requests, billing or press. "
+      description: "Reach the Queepit team about bugs, feature requests, billing or press. "
         + "One address, read by a person, answered within two working days.",
    },
 }

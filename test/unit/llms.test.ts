@@ -3,13 +3,13 @@ import { describe, expect, it } from "vitest"
 import { FEATURES, PRICING } from "../../app/utils/content"
 import { llmsTxt } from "../../app/utils/llms"
 
-const SITE = "https://www.queep.app"
+const SITE = "https://queepit.com"
 
 describe("llmsTxt", () => {
    it("opens with an H1 and a blockquote summary", () => {
       const lines = llmsTxt(SITE).split("\n")
 
-      expect(lines[0]).toBe("# Queep It")
+      expect(lines[0]).toBe("# Queepit")
       expect(lines[2]?.startsWith("> ")).toBe(true)
    })
 

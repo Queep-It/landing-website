@@ -12,7 +12,7 @@
       <div class="prose">
          <h2>The licence</h2>
          <p>
-            Buying Queep It gives you a personal, non-exclusive licence to run it on the devices
+            Buying Queepit gives you a personal, non-exclusive licence to run it on the devices
             signed in to your Apple Account. You may not resell, sublicense or redistribute
             the app itself.
          </p>
@@ -26,7 +26,7 @@
 
          <h2>Acceptable use</h2>
          <p>
-            Queep It stores whatever you put in it, and what you put in it is your
+            Queepit stores whatever you put in it, and what you put in it is your
             responsibility. Do not use the app to store or distribute material you have no
             right to, and do not attempt to reverse-engineer, decompile or circumvent its
             licensing.
@@ -41,7 +41,7 @@
 
          <h2>Liability</h2>
          <p>
-            Queep It is provided without warranty of any kind. To the maximum extent permitted
+            Queepit is provided without warranty of any kind. To the maximum extent permitted
             by law, our total liability for any claim relating to the app is limited to the
             amount you paid for your licence. Keep your own backups of anything you cannot
             afford to lose — that advice applies to every app, this one included.

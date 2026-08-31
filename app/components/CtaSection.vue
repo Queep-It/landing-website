@@ -3,7 +3,7 @@
       <div class="section__inner">
          <div class="cta" data-reveal-target>
             <span class="cta__mark">
-               <QueepItMark gap-color="var(--surface-raised)" />
+               <QueepitMark gap-color="var(--surface-raised)" />
             </span>
             <h2 class="cta__title">
                {{ COPY.cta.title }}

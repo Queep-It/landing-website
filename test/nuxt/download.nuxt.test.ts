@@ -5,7 +5,7 @@ import { useDownload } from "../../app/composables/useDownload"
 
 /// With no `NUXT_PUBLIC_DOWNLOAD_URL` configured — the state the repo
 /// ships in — every call to action has to become a waitlist link with
-/// waitlist wording. The failure this guards is a pill reading "Get Queep It"
+/// waitlist wording. The failure this guards is a pill reading "Get Queepit"
 /// that points at nothing.
 
 describe("useDownload", () => {
@@ -24,6 +24,6 @@ describe("useDownload", () => {
    it("picks the pending label while unavailable", () => {
       const { label } = useDownload()
 
-      expect(label("Get Queep It", "Join the beta").value).toBe("Join the beta")
+      expect(label("Get Queepit", "Join the beta").value).toBe("Join the beta")
    })
 })
