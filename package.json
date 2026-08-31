@@ -1,9 +1,9 @@
 {
-   "name": "queep-it-landing-website",
+   "name": "queepit-landing-website",
    "version": "1.5.0",
    "type": "module",
    "private": true,
-   "homepage": "https://www.queep.app",
+   "homepage": "https://queepit.com",
    "scripts": {
       "build": "bun --bun nuxt build",
       "dev": "bun --bun nuxt dev",

@@ -18,7 +18,7 @@
 export type ThemePreference = "system" | "light" | "dark"
 
 /** Shared with the inline head script in `nuxt.config.ts` — keep in step. */
-export const THEME_STORAGE_KEY = "queep-it-theme"
+export const THEME_STORAGE_KEY = "queepit-theme"
 
 export const THEME_PREFERENCES: ThemePreference[] = ["system", "light", "dark"]
 

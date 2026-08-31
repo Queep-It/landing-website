@@ -1,13 +1,13 @@
 /// --------------------------------------------------
 /// composables/useDownload.ts
 /// --------------------------------------------------
-/// Resolves the single "Get Queep It" destination for every call to action.
+/// Resolves the single "Get Queepit" destination for every call to action.
 ///
 /// One composable rather than each button reading runtimeConfig itself,
 /// because the pre-release case has to be handled identically everywhere:
 /// with no `NUXT_PUBLIC_DOWNLOAD_URL` set, every button becomes a waitlist
 /// link with waitlist wording. A component that forgot would ship a pill
-/// reading "Get Queep It" pointing at nothing.
+/// reading "Get Queepit" pointing at nothing.
 /// --------------------------------------------------
 
 interface DownloadCta {

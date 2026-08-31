@@ -1,7 +1,7 @@
 <template>
    <svg
       aria-hidden="true"
-      class="queep-it-mark"
+      class="queepit-mark"
       fill="none"
       focusable="false"
       role="presentation"
@@ -61,7 +61,7 @@ withDefaults(defineProps<{
 </script>
 
 <style scoped lang="scss">
-.queep-it-mark {
+.queepit-mark {
    display: block;
    inline-size: 100%;
    block-size: 100%;

@@ -2,13 +2,13 @@
 
 <img src="public/favicon.svg" alt="" width="88" height="88">
 
-# Queep It — Landing Website
+# Queepit — Landing Website
 
 **Keep it. Find it. Use it.**
 
-The marketing site for Queep It, a cross-Apple-platform app for the snippets, images, files and documents worth keeping close.
+The marketing site for Queepit, a cross-Apple-platform app for the snippets, images, files and documents worth keeping close.
 
-[**queep.app**](https://www.queep.app) · [Getting started](#getting-started) · [Contributing](.github/CONTRIBUTING.md) · [Changelog](CHANGELOG.md)
+[**queepit.com**](https://queepit.com) · [Getting started](#getting-started) · [Contributing](.github/CONTRIBUTING.md) · [Changelog](CHANGELOG.md)
 
 [![CI](https://img.shields.io/github/actions/workflow/status/Queep-It/landing-website/ci.yml?branch=main&label=CI&style=flat-square)](https://github.com/Queep-It/landing-website/actions/workflows/ci.yml) [![Release](https://img.shields.io/github/v/release/Queep-It/landing-website?style=flat-square&label=release)](https://github.com/Queep-It/landing-website/releases/latest) [![License](https://img.shields.io/github/license/Queep-It/landing-website?style=flat-square)](LICENSE) [![Nuxt 4](https://img.shields.io/badge/Nuxt-4-00DC82?style=flat-square&logo=nuxt&logoColor=white)](https://nuxt.com) [![Bun](https://img.shields.io/badge/Bun-1.3-000000?style=flat-square&logo=bun&logoColor=white)](https://bun.sh)
 
@@ -75,14 +75,14 @@ Three rules worth knowing before changing them:
   desk rather than as panels cut into it. Elevation is carried by shadow.
 
 Theme preference is system / light / dark, stored in `localStorage` under
-`queep-it-theme`, where "system" is the *absence* of the key and of the
+`queepit-theme`, where "system" is the *absence* of the key and of the
 `data-theme` attribute. An inline script in `nuxt.config.ts` applies a stored
 choice before first paint; without it, dark-mode visitors get a cream flash on
 every load.
 
 ### The app mark
 
-`app/components/QueepItMark.vue` draws the logo as SVG rather than shipping a
+`app/components/QueepitMark.vue` draws the logo as SVG rather than shipping a
 bitmap. It renders at 17px inside the window mock, 28px in the header, 38px in
 the footer and 56px in the closing CTA, in two themes — a PNG crisp at all of
 those is three files and a `srcset`. Drawing it also lets the knockout around
@@ -307,7 +307,7 @@ cp .env.example .env
 `NUXT_PUBLIC_DOWNLOAD_URL` is the one worth knowing about. Leave it empty and
 every call to action becomes a waitlist link with waitlist wording, handled in
 one place by `app/composables/useDownload.ts` — that is what stops a "Get
-Queep It" button shipping while it points at nothing.
+Queepit" button shipping while it points at nothing.
 
 > ⚠️ Never commit `.env` — it is gitignored.
 

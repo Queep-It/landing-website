@@ -52,7 +52,7 @@ export default defineNuxtConfig({
                // Reads the key owned by `composables/useTheme.ts`; the two
                // must stay in step. Wrapped in try/catch because localStorage
                // throws outright when a browser blocks site data.
-               innerHTML: "(function(){try{var t=localStorage.getItem(\"queep-it-theme\");if(t===\"dark\"||t===\"light\")document.documentElement.setAttribute(\"data-theme\",t)}catch(e){}})()",
+               innerHTML: "(function(){try{var t=localStorage.getItem(\"queepit-theme\");if(t===\"dark\"||t===\"light\")document.documentElement.setAttribute(\"data-theme\",t)}catch(e){}})()",
                tagPosition: "head",
                tagPriority: "critical",
             },
@@ -72,8 +72,8 @@ export default defineNuxtConfig({
    // Site-wide identity — single source of truth for all Nuxt SEO modules
    // (sitemap, robots, og-image, schema.org, canonical URLs).
    site: {
-      url: process.env.NUXT_SITE_URL || "https://www.queep.app",
-      name: "Queep It",
+      url: process.env.NUXT_SITE_URL || "https://queepit.com",
+      name: "Queepit",
       description: "Keep it. Find it. Use it. One place on your Mac, iPhone and iPad for the snippets, images, files and documents worth keeping close.",
       defaultLocale: "en",
    },
@@ -162,8 +162,8 @@ export default defineNuxtConfig({
    schemaOrg: {
       identity: {
          type: "Organization",
-         name: "Queep It",
-         url: "https://www.queep.app",
+         name: "Queepit",
+         url: "https://queepit.com",
       },
    },
 })

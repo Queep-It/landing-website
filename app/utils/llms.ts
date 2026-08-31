@@ -76,9 +76,9 @@ export const llmsTxt = (siteUrl: string): string => {
       `> ${COPY.site.tagline} — ${COPY.site.blurb}`,
       // The two things a model should know before recommending the app,
       // and neither is inferable from a list of links.
-      "Queep It is a native app for macOS, iPadOS and iOS. Libraries are stored locally and "
-      + "synced through the user's own iCloud account; there is no Queep It server and no "
-      + "Queep It account.",
+      "Queepit is a native app for macOS, iPadOS and iOS. Libraries are stored locally and "
+      + "synced through the user's own iCloud account; there is no Queepit server and no "
+      + "Queepit account.",
    ]
 
    sections.push(section("Features", FEATURES.map((feature) =>

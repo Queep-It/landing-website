@@ -158,7 +158,7 @@ export const PRICING: PricingTier[] = [
       name: "Free",
       price: "$0",
       period: "forever",
-      blurb: "Everything you need to decide whether Queep It belongs in your day.",
+      blurb: "Everything you need to decide whether Queepit belongs in your day.",
       features: [
          "Up to 100 saved items",
          "Text, image and file capture",
@@ -201,7 +201,7 @@ export const FAQ: FaqEntry[] = [
       id: "difference",
       question: "How is this different from Notes or Finder?",
       answer: "Notes is for things you write and Finder is for files you have already "
-        + "decided where to put. Queep It is for the gap between them — the snippet, screenshot "
+        + "decided where to put. Queepit is for the gap between them — the snippet, screenshot "
         + "or attachment you want to keep for the next few days without naming it, filing it, "
         + "or deciding which of the two it belongs in.",
    },
@@ -209,8 +209,8 @@ export const FAQ: FaqEntry[] = [
       id: "storage",
       question: "Where is my data stored?",
       answer: "On your device, in a local library. If you turn sync on, it moves through "
-        + "your own iCloud account between your devices. There is no Queep It server holding "
-        + "your library, and there is no Queep It account to create.",
+        + "your own iCloud account between your devices. There is no Queepit server holding "
+        + "your library, and there is no Queepit account to create.",
    },
    {
       id: "offline",
@@ -221,7 +221,7 @@ export const FAQ: FaqEntry[] = [
    {
       id: "requirements",
       question: "What do I need to run it?",
-      answer: `Queep It needs ${REQUIREMENTS.macos} or later on the Mac, and ${REQUIREMENTS.ios} `
+      answer: `Queepit needs ${REQUIREMENTS.macos} or later on the Mac, and ${REQUIREMENTS.ios} `
         + "or later on iPhone and iPad. It runs natively on both Apple silicon and Intel Macs.",
    },
    {
@@ -236,6 +236,6 @@ export const FAQ: FaqEntry[] = [
       question: "Can I get my things out again?",
       answer: "Any time. Everything exports to plain files and folders, with text as "
         + "Markdown and metadata alongside it as JSON. Nothing you save is locked into a "
-        + "format only Queep It can read.",
+        + "format only Queepit can read.",
    },
 ]

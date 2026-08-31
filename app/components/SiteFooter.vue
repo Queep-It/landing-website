@@ -3,7 +3,7 @@
       <div class="site-footer__inner">
          <div class="site-footer__brand">
             <span class="site-footer__mark">
-               <QueepItMark gap-color="var(--surface-sunken)" />
+               <QueepitMark gap-color="var(--surface-sunken)" />
             </span>
             <p class="site-footer__name">
                {{ COPY.site.name }}

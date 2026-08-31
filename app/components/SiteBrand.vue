@@ -4,7 +4,7 @@
            size: the topbar is sticky and inside the CLS budget, so the
            mark's footprint has to be reserved before anything paints. -->
       <span class="site-brand__mark">
-         <QueepItMark :gap-color="gapColor" />
+         <QueepitMark :gap-color="gapColor" />
       </span>
       <span class="site-brand__name">{{ COPY.site.name }}</span>
    </NuxtLink>

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Lighthouse CI for the Queep It landing site — SSR-aware.
+# Lighthouse CI for the Queepit landing site — SSR-aware.
 #
 # Your lighthouserc*.json files only hold assertions (no URL/server), so
 # `lhci autorun` alone can't find a static dir for this SSR app. This script

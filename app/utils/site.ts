@@ -57,7 +57,7 @@ export const REQUIREMENTS = {
 } as const
 
 /**
- * Where every "Get Queep It" button points, and whether it is a real download
+ * Where every "Get Queepit" button points, and whether it is a real download
  * yet.
  *
  * Returns a discriminated union rather than a bare string so callers cannot
