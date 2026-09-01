@@ -5,7 +5,7 @@
            imitated in detail. -->
       <div class="menubar__bar">
          <span class="menubar__app">
-            <QueepitMark gap-color="var(--mock-sunken)" />
+            <QueepitMark />
          </span>
 
          <span class="menubar__status">
@@ -22,7 +22,7 @@
 
          <p class="menubar__title">
             <span class="menubar__title-mark">
-               <QueepitMark gap-color="var(--mock-surface)" />
+               <QueepitMark />
             </span>
             Queepit
          </p>

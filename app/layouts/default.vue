@@ -6,7 +6,7 @@
       <a class="skip-link" href="#content">{{ COPY.nav.skip }}</a>
 
       <header class="app-shell__topbar">
-         <SiteBrand class="app-shell__brand" gap-color="var(--surface)" />
+         <SiteBrand class="app-shell__brand" />
          <SiteNav class="app-shell__nav" />
 
          <div class="app-shell__actions">
