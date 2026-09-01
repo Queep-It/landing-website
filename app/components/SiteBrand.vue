@@ -2,26 +2,24 @@
    <NuxtLink class="site-brand" to="/">
       <!-- Fixed box, set in rem rather than left to the SVG's intrinsic
            size: the topbar is sticky and inside the CLS budget, so the
-           mark's footprint has to be reserved before anything paints. -->
-      <span class="site-brand__mark">
-         <QueepitMark :gap-color="gapColor" />
+           lockup's footprint has to be reserved before anything paints.
+           The two values are the artwork's own 454:128 ratio, sized so the
+           wordmark's cap height matches the 19px it used to be set at. -->
+      <span class="site-brand__logo">
+         <QueepitLogo />
       </span>
-      <span class="site-brand__name">{{ COPY.site.name }}</span>
+      <!-- The lockup draws the name as outlines, so the link would
+           otherwise have no accessible name at all. -->
+      <span class="visually-hidden">{{ siteName }}</span>
    </NuxtLink>
 </template>
 
 <script lang="ts" setup>
-withDefaults(defineProps<{
-   /**
-    * The knockout colour around the bookmark. The header sits on the
-    * translucent veil rather than on `--surface`, and in the footer the
-    * mark sits on the sunken band — both need their own backdrop passed
-    * in, or the gap shows as a cream notch on the wrong colour.
-    */
-   gapColor?: string
-}>(), {
-   gapColor: "var(--surface)",
-})
+/// The topbar brand: the horizontal lockup, linked home.
+
+// Read into a binding rather than reached for in the template, so the
+// auto-import is resolved by the script transform like everywhere else.
+const siteName = COPY.site.name
 </script>
 
 <style scoped lang="scss">
@@ -30,7 +28,6 @@ withDefaults(defineProps<{
 .site-brand {
    display: inline-flex;
    align-items: center;
-   gap: var(--space-2xs);
    border-radius: var(--radius-sm);
    color: var(--ink);
 
@@ -39,18 +36,11 @@ withDefaults(defineProps<{
       outline-offset: 4px;
    }
 
-   &__mark {
+   &__logo {
       display: block;
       flex-shrink: 0;
-      inline-size: px-to-rem(28);
-      block-size: px-to-rem(28);
-   }
-
-   &__name {
-      font-family: var(--font-display);
-      font-size: px-to-rem(19);
-      font-weight: var(--weight-heading);
-      letter-spacing: -0.02em;
+      inline-size: px-to-rem(121);
+      block-size: px-to-rem(34);
    }
 }
 </style>

@@ -11,13 +11,14 @@ of them have a quirk worth knowing before you regenerate them.
 
 ## The two quirks
 
-**The favicon is not the app mark.** `components/QueepitMark.vue` draws the
-mark with a *transparent* knockout between the bookmark and the Q, so it
-adapts to whatever surface it sits on. A favicon has no such surface — it
-is composited against browser chrome that changes with the OS theme — so
-`favicon.svg` is drawn on its own charcoal squircle with the knockout
-painted in explicitly. The two files are deliberately not the same artwork,
-and editing one does not update the other.
+**The favicon is not the app mark.** Both draw the same two paths, but
+`components/QueepitMark.vue` leaves them unpainted behind — ink is
+`currentColor`, and the gap between the bookmark and the Q is a hole in the
+artwork — so the mark takes on whatever surface it lands on. A favicon has
+no such surface: it is composited against browser chrome that changes with
+the OS theme, so `favicon.svg` sets the mark on its own charcoal squircle
+in explicit cream and amber, and the hole reads as a dark gap. The paths
+are shared by copy, not by import — editing one does not update the other.
 
 **iOS composites transparency against black.** An `apple-touch-icon.png`
 with transparent corners gets black corners on the home screen. Export it

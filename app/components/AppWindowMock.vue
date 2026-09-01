@@ -19,7 +19,7 @@
          <aside class="window__sidebar">
             <p class="window__brand">
                <span class="window__brand-mark">
-                  <QueepitMark gap-color="var(--mock-surface)" />
+                  <QueepitMark />
                </span>
                Queepit
             </p>
