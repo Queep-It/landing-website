@@ -3,6 +3,16 @@
 All notable changes to this project will be documented here.
 Format based on [Keep a Changelog](https://keepachangelog.com/).
 
+## [1.7.0](https://github.com/Queep-It/landing-website/compare/v1.6.0...v1.7.0) (2026-09-01)
+
+### ✨ Features
+
+* adopt the revised logo mark and horizontal lockup ([d5bef22](https://github.com/Queep-It/landing-website/commit/d5bef22eab1dcc297fd1473233826b53006e1403))
+
+### 🐛 Bug Fixes
+
+* close the word space in the lockup so it reads "queepit" ([e3db403](https://github.com/Queep-It/landing-website/commit/e3db403fc42eaca882656cb65872188430f02b7b))
+
 ## [1.6.0](https://github.com/Queep-It/landing-website/compare/v1.5.0...v1.6.0) (2026-08-31)
 
 ### ✨ Features
