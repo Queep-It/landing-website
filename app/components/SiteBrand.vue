@@ -3,7 +3,7 @@
       <!-- Fixed box, set in rem rather than left to the SVG's intrinsic
            size: the topbar is sticky and inside the CLS budget, so the
            lockup's footprint has to be reserved before anything paints.
-           The two values are the artwork's own 454:128 ratio, sized so the
+           The two values are the lockup's 431.6:128 ratio, sized so the
            wordmark's cap height matches the 19px it used to be set at. -->
       <span class="site-brand__logo">
          <QueepitLogo />
@@ -39,7 +39,7 @@ const siteName = COPY.site.name
    &__logo {
       display: block;
       flex-shrink: 0;
-      inline-size: px-to-rem(121);
+      inline-size: px-to-rem(115);
       block-size: px-to-rem(34);
    }
 }
