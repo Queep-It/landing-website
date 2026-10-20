@@ -10,7 +10,7 @@ The marketing site for Queepit, a cross-Apple-platform app for the snippets, ima
 
 [**queepit.com**](https://queepit.com) · [Getting started](#getting-started) · [Contributing](.github/CONTRIBUTING.md) · [Changelog](CHANGELOG.md)
 
-[![CI](https://img.shields.io/github/actions/workflow/status/Queep-It/landing-website/ci.yml?branch=main&label=CI&style=flat-square)](https://github.com/Queep-It/landing-website/actions/workflows/ci.yml) [![Release](https://img.shields.io/github/v/release/Queep-It/landing-website?style=flat-square&label=release)](https://github.com/Queep-It/landing-website/releases/latest) [![License](https://img.shields.io/github/license/Queep-It/landing-website?style=flat-square)](LICENSE) [![Nuxt 4](https://img.shields.io/badge/Nuxt-4-00DC82?style=flat-square&logo=nuxt&logoColor=white)](https://nuxt.com) [![Bun](https://img.shields.io/badge/Bun-1.3-000000?style=flat-square&logo=bun&logoColor=white)](https://bun.sh)
+[![CI](https://img.shields.io/github/actions/workflow/status/Queep-It/landing-website/ci.yml?branch=main&label=CI&style=flat-square)](https://github.com/Queep-It/landing-website/actions/workflows/ci.yml) [![Release](https://img.shields.io/github/v/release/Queep-It/landing-website?style=flat-square&label=release)](https://github.com/Queep-It/landing-website/releases/latest) [![License](https://img.shields.io/github/license/Queep-It/landing-website?style=flat-square)](LICENSE) [![Nuxt 4](https://img.shields.io/badge/Nuxt-4-00DC82?style=flat-square&logo=nuxt&logoColor=white)](https://nuxt.com) [![Bun](https://img.shields.io/badge/Bun-1.4-000000?style=flat-square&logo=bun&logoColor=white)](https://bun.sh)
 
 </div>
 
@@ -140,7 +140,7 @@ collapses the swipe.
 
 ## Prerequisites
 
-- [Bun](https://bun.sh) `>= 1.3.14`
+- [Bun](https://bun.sh) `>= 1.4.3`
 
 ---
 
