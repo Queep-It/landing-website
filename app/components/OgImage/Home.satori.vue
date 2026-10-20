@@ -45,9 +45,14 @@ withDefaults(defineProps<{
    flexbox, no grid, no background-clip — and resolves neither SCSS nor the
    :root custom properties the site uses, so the palette is repeated
    literally. These hex values mirror --surface, --ink and --accent-solid
-   in assets/scss/base/_global.scss; change them together. */
+   in assets/scss/base/_global.scss; change them together.
+
+   `box-sizing` is explicit because Satori's default followed CSS to
+   `content-box` in later releases: without it the 80px padding is added
+   on top of the 100% height and the centred block drops off-centre. */
 .og {
    position: relative;
+   box-sizing: border-box;
    width: 100%;
    height: 100%;
    display: flex;
@@ -73,7 +78,13 @@ withDefaults(defineProps<{
    opacity: 0.5;
 }
 
+/* Satori paints positioned boxes above in-flow ones, as CSS does, so the
+   glow would otherwise wash out any text it overlaps. The brand, title and
+   subtitle are each positioned too, which puts painting back in source
+   order with the glow underneath. Repeated per rule rather than grouped
+   into one selector list, which the OG style inliner does not apply. */
 .og__brand {
+   position: relative;
    display: flex;
    align-items: center;
    font-size: 30px;
@@ -101,6 +112,7 @@ withDefaults(defineProps<{
 }
 
 .og__title {
+   position: relative;
    font-size: 78px;
    font-weight: 800;
    line-height: 1.03;
@@ -108,6 +120,7 @@ withDefaults(defineProps<{
 }
 
 .og__subtitle {
+   position: relative;
    font-size: 32px;
    font-weight: 400;
    margin-top: 26px;

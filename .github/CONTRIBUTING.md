@@ -10,7 +10,7 @@ By participating in this project, you agree to abide by our
 
 ## Prerequisites
 
-- [Bun](https://bun.sh) `>= 1.3.14`
+- [Bun](https://bun.sh) `>= 1.4.3`
 
 ## Local Setup
 
